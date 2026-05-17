@@ -92,15 +92,12 @@ python -m streamlit run streamlit_app.py
 
 ### 雲端環境變數
 
-如果部署環境不是本機，建議設定以下環境變數：
+如果部署環境不是本機，建議至少設定：
 
 - `TVM_WORKSPACE_ROOT`
 - `TVM_SHARED_DATA_ROOT`
-- `TVM_IMFS_SOURCE_ROOT`
-- `TVM_QUANT_SOURCE_ROOT`
-- `TVM_HYBRID_SOURCE_ROOT`
 
-若未設定，系統會優先使用 repo 相對路徑：
+外部模型來源現在已經隨 repo 內建；若未額外設定，系統會直接使用 repo 相對路徑：
 
 - `_external/imfs_tw_stock`
 - `_external/tw_buffett_quant`
@@ -108,23 +105,21 @@ python -m streamlit run streamlit_app.py
 
 你可以參考 [.streamlit/secrets.toml.example](/D:/Codex%20projects/TW%20Valuation%20models/.streamlit/secrets.toml.example) 準備部署用設定。
 
-### 公開 demo 模式
+### 完整部署預設
 
-如果公開部署環境缺少外部模型來源：
+目前 repo 已內建：
 
 - `IMFS`
 - `台股 Buffett Quant`
 - `混合模型`
 
-app 仍然可以啟動，不會直接 crash。
+因此在正常情況下，Streamlit Community Cloud 會直接跑完整版本，不需要再另外掛載三個外部模型 repo。
 
-目前的降級策略是：
+只有在你手動覆寫下列環境變數，而且路徑指向錯誤位置時，這三個模型才可能回退成 `unavailable`：
 
-- `Buffett TW / Buffett 2.0 / Buffett 3.0 / Final AI` 仍可使用
-- 缺少原始外部模型來源的模型會標示為 `unavailable`
-- sidebar 會顯示目前 demo 模式缺少哪些外部模型
-
-這讓你可以先提供免費公開 demo，再決定是否要把外部模型完整整理進 repo。
+- `TVM_IMFS_SOURCE_ROOT`
+- `TVM_QUANT_SOURCE_ROOT`
+- `TVM_HYBRID_SOURCE_ROOT`
 
 ## UI 使用方式
 

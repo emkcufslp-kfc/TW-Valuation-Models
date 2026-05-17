@@ -3189,3 +3189,21 @@ Changes:
 Notes:
 - public demo mode still degrades gracefully when external model repos are unavailable
 - `IMFS`, `台股 Buffett Quant`, and `混合模型` remain optional in cloud demo mode
+### Module 56 Completed: Full Cloud Deploy Bundles External Models
+
+This pass converted the public deployment path from demo-only to full-featured by bundling the external model source code directly into this repo under `_external/`.
+
+Completed:
+- vendored IMFS source package into `_external/imfs_tw_stock/imfs`
+- vendored TW Buffett Quant runtime files into `_external/tw_buffett_quant`
+- vendored TW Hybrid `strategy.py` into `_external/tw_hybrid_model`
+- updated `app.py` deployment guidance so cloud initialization no longer assumes external repos must be mounted separately
+- updated `README.md`, `DEPLOY_STREAMLIT_CLOUD.md`, and `.streamlit/secrets.toml.example` to describe full deploy as the default path
+
+Verification:
+- `python -m unittest tests.test_config tests.test_source_bridge tests.test_portfolio_builder tests.test_app_reporting tests.test_final_module_payloads`
+- `python -m compileall tw_valuation_models tests app.py streamlit_app.py`
+
+Important note:
+- Streamlit Community Cloud should now be able to run the full stack directly from this repository, using the bundled `_external/` sources by default.
+- The `TVM_IMFS_SOURCE_ROOT`, `TVM_QUANT_SOURCE_ROOT`, and `TVM_HYBRID_SOURCE_ROOT` secrets remain optional override hooks rather than deployment requirements.

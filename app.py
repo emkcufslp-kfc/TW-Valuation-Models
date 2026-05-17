@@ -2740,9 +2740,9 @@ except Exception as exc:
             f"""
             **可能原因**
 
-            - 雲端環境尚未設定資料目錄
-            - 外部模型來源尚未掛載
-            - 首次部署時尚未生成基礎資料
+            - 雲端環境尚未生成基礎資料
+            - 共享資料目錄尚未建立或不可寫入
+            - 若你手動覆寫來源路徑，外部模型來源設定可能不正確
 
             **目前錯誤**
 
@@ -2750,12 +2750,12 @@ except Exception as exc:
 
             **部署提示**
 
-            - 設定 `TVM_SHARED_DATA_ROOT`
-            - 如需完整模型，設定：
+            - 先確認 `TVM_SHARED_DATA_ROOT`
+            - repo 已內建 `_external/` 完整模型來源，正常情況不需要再設定：
               - `TVM_IMFS_SOURCE_ROOT`
               - `TVM_QUANT_SOURCE_ROOT`
               - `TVM_HYBRID_SOURCE_ROOT`
-            - 若為公開 demo，可先確認 app 至少能生成基礎資料與 Buffett 系列模型
+            - 若為首次部署，重新整理後讓 app 先生成基礎資料與完整模型結果
             """
         )
     )

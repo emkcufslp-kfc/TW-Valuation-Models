@@ -21,9 +21,10 @@
   - [requirements.txt](/D:/Codex%20projects/TW%20Valuation%20models/requirements.txt)
 - Secrets 樣板：
   - [.streamlit/secrets.toml.example](/D:/Codex%20projects/TW%20Valuation%20models/.streamlit/secrets.toml.example)
-- 缺少外部模型來源時的 demo 降級模式：
-  - app 不會直接 crash
-  - `IMFS / 台股 Buffett Quant / 混合模型` 會顯示 `unavailable`
+- repo 已內建完整外部模型來源：
+  - `_external/imfs_tw_stock`
+  - `_external/tw_buffett_quant`
+  - `_external/tw_hybrid_model`
 
 ## 部署步驟
 
@@ -79,15 +80,9 @@ TVM_WORKSPACE_ROOT = "."
 TVM_SHARED_DATA_ROOT = "./artifacts/shared_data"
 ```
 
-如果你暫時沒有外部模型 repo，不要加也可以：
+一般情況下，不需要額外設定外部模型來源；repo 會直接使用內建的 `_external/`。
 
-- `TVM_IMFS_SOURCE_ROOT`
-- `TVM_QUANT_SOURCE_ROOT`
-- `TVM_HYBRID_SOURCE_ROOT`
-
-那 app 會進入公開 demo 降級模式。
-
-如果你之後想補完整模型，可再加入：
+如果你想手動覆寫來源路徑，可再加入：
 
 ```toml
 TVM_IMFS_SOURCE_ROOT = "./_external/imfs_tw_stock"
@@ -97,35 +92,17 @@ TVM_HYBRID_SOURCE_ROOT = "./_external/tw_hybrid_model"
 
 ## 目前最建議的公開方式
 
-### 方案 A：先上線 demo 版
+### 完整功能版
 
-這是目前最務實的做法。
+目前這個 repo 已經是完整功能版。
 
-效果：
-
-- app 可以公開開啟
-- `Buffett TW / Buffett 2.0 / Buffett 3.0 / Final AI` 可運作
-- 缺少外部 repo 的模型會標示 `unavailable`
-
-適合：
-
-- 想先給使用者看
-- 想先驗證 UI / 流程 / Final AI 體驗
-
-### 方案 B：完整功能版
-
-若要讓以下模型也完整可用：
+以下模型都會一起部署：
 
 - `IMFS`
 - `台股 Buffett Quant`
 - `混合模型`
 
-則需要把它們的原始碼：
-
-1. 一起整理進目前 repo 的 `_external/`
-2. 或在雲端環境提供對應可讀路徑
-
-否則 Community Cloud 上只能進 demo 降級模式。
+也就是說，現在直接用這個 repo 部署到 Streamlit Community Cloud，就會是完整版，而不是只有 demo 降級版。
 
 ## 部署成功後應檢查的項目
 
