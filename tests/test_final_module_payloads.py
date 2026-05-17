@@ -121,6 +121,73 @@ class FinalModulePayloadTests(unittest.TestCase):
             self.assertEqual(independent_payload["industry_bucket"], "金融股")
             self.assertIn("Test Co", commentary_payload["final_conclusion"]["summary"])
 
+    def test_build_final_module_payloads_can_use_on_demand_result_without_top100_results_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            workspace_root = Path(temp_dir)
+            paths = WorkspacePaths(
+                workspace_root=workspace_root,
+                shared_data_root=workspace_root / "shared",
+            )
+
+            results_root = paths.artifacts_root / "results"
+            (results_root / "buffett3_payloads").mkdir(parents=True, exist_ok=True)
+            (results_root / "buffett3_payloads" / "2330.json").write_text(
+                json.dumps(
+                    {
+                        "ticker": "2330",
+                        "company_name": "TSMC",
+                        "classification": "high_quality_compounder",
+                        "rating": "昂貴",
+                        "signal": "hold",
+                        "normalized_inputs": {
+                            "normalized_eps": 50.0,
+                            "normalized_fcf_per_share": 30.0,
+                            "normalized_dividend_capacity_per_share": 10.0,
+                        },
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+
+            paths.on_demand_results_root.mkdir(parents=True, exist_ok=True)
+            (paths.on_demand_results_root / "2330.json").write_text(
+                json.dumps(
+                    {
+                        "ticker": "2330",
+                        "row": {
+                            "ticker": "2330",
+                            "name": "TSMC",
+                            "price": 1000.0,
+                            "buffett3_intrinsic": 800.0,
+                            "imfs_intrinsic": None,
+                            "hybrid_target": None,
+                            "quant_score": None,
+                            "buffett3_type": "high_quality_compounder",
+                        },
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+
+            paths.final_module_normalized_root.mkdir(parents=True, exist_ok=True)
+            for filename, header in {
+                "institutional_consensus.csv": "ticker,target_price,rating_normalized\n",
+                "news_commentary.csv": "ticker,sentiment,theme\n",
+                "public_commentary.csv": "ticker,sentiment,stance\n",
+            }.items():
+                (paths.final_module_normalized_root / filename).write_text(
+                    header,
+                    encoding="utf-8",
+                )
+
+            summary = build_final_module_payloads(paths, tickers=["2330"])
+
+            self.assertEqual(summary["payload_count"], 1)
+            self.assertTrue((paths.final_module_independent_ai_root / "2330.json").exists())
+            self.assertTrue((paths.final_module_commentary_root / "2330.json").exists())
+
 
 if __name__ == "__main__":
     unittest.main()

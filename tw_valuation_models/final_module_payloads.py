@@ -27,10 +27,11 @@ def _safe_float(value: object, default: float = 0.0) -> float:
 
 def _load_results_row(paths: WorkspacePaths, ticker: str) -> dict[str, str]:
     results_path = paths.artifacts_root / "results" / "top100_model_results.csv"
-    with results_path.open("r", encoding="utf-8-sig", newline="") as handle:
-        for row in csv.DictReader(handle):
-            if str(row["ticker"]) == ticker:
-                return row
+    if results_path.exists():
+        with results_path.open("r", encoding="utf-8-sig", newline="") as handle:
+            for row in csv.DictReader(handle):
+                if str(row["ticker"]) == ticker:
+                    return row
     on_demand_path = paths.on_demand_results_root / f"{ticker}.json"
     if on_demand_path.exists():
         payload = json.loads(on_demand_path.read_text(encoding="utf-8"))
