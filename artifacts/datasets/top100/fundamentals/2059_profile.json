@@ -1,0 +1,19 @@
+{
+  "ticker": "2059",
+  "longName": "King Slide Works Co., Ltd.",
+  "sector": "Consumer Cyclical",
+  "industry": "Furnishings, Fixtures & Appliances",
+  "sharesOutstanding": 95297000,
+  "marketCap": 477437984768,
+  "priceToBook": 15.142997,
+  "dividendYield": 0.61,
+  "trailingPE": 49.70238,
+  "trailingEps": 100.8,
+  "currentPrice": 5010.0,
+  "regularMarketPrice": 5010.0,
+  "previousClose": 5250.0,
+  "currentRatio": 5.471,
+  "debtToEquity": 4.984,
+  "currency": "TWD",
+  "source": "yfinance"
+}

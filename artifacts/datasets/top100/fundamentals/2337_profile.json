@@ -1,0 +1,19 @@
+{
+  "ticker": "2337",
+  "longName": "Macronix International Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 1929126000,
+  "marketCap": 326022299648,
+  "priceToBook": 6.438095,
+  "dividendYield": null,
+  "trailingPE": null,
+  "trailingEps": -1.76,
+  "currentPrice": 169.0,
+  "regularMarketPrice": 169.0,
+  "previousClose": 168.0,
+  "currentRatio": 2.33,
+  "debtToEquity": 45.243,
+  "currency": "TWD",
+  "source": "yfinance"
+}

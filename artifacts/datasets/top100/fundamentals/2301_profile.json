@@ -1,0 +1,19 @@
+{
+  "ticker": "2301",
+  "longName": "Lite-On Technology Corporation",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 2269772000,
+  "marketCap": 469842821120,
+  "priceToBook": 5.3312044,
+  "dividendYield": 3.55,
+  "trailingPE": 31.363636,
+  "trailingEps": 6.6,
+  "currentPrice": 207.0,
+  "regularMarketPrice": 207.0,
+  "previousClose": 211.5,
+  "currentRatio": 1.419,
+  "debtToEquity": 20.111,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2308",
+  "longName": "Delta Electronics, Inc.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 2597543329,
+  "marketCap": 5597706059776,
+  "priceToBook": 18.687456,
+  "dividendYield": 0.32,
+  "trailingPE": 93.0082,
+  "trailingEps": 23.17,
+  "currentPrice": 2155.0,
+  "regularMarketPrice": 2155.0,
+  "previousClose": 2165.0,
+  "currentRatio": 1.954,
+  "debtToEquity": 19.37,
+  "currency": "TWD",
+  "source": "yfinance"
+}

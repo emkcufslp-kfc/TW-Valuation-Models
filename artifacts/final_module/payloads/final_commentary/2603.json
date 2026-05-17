@@ -1,0 +1,65 @@
+{
+  "ticker": "2603",
+  "as_of_date": "2026-05-17",
+  "company_name": "長榮海運股份有限公司",
+  "internal_model_snapshot": {
+    "buffett3": {
+      "fair_value": 209.119,
+      "conclusion": "合理",
+      "action": "持有",
+      "comment": "Buffett 3.0 對景氣循環股較重視中位數價值，因此結果接近合理。"
+    },
+    "imfs": {
+      "fair_value": 475.1446,
+      "conclusion": "合理偏低估",
+      "action": "觀察",
+      "comment": "IMFS 對景氣循環波動的懲罰較弱，容易比保守模型更樂觀。"
+    },
+    "hybrid": {
+      "fair_value": 211.55,
+      "conclusion": "合理",
+      "action": "持有",
+      "comment": "較接近市場綜合定價。"
+    },
+    "quant": {
+      "score": 62.0,
+      "conclusion": "偏正向",
+      "action": "觀察",
+      "comment": "因子分數適合做排序輔助，不適合單獨取代估值結論。"
+    }
+  },
+  "independent_ai_snapshot": {
+    "fair_value_range": "153.89-183.73",
+    "base_fair_value": 164.56,
+    "conclusion": "高估",
+    "action": "減碼",
+    "confidence": "中等"
+  },
+  "news_snapshot": {
+    "summary": "近期新聞主軸集中在：獲利與營收、產業循環。",
+    "sentiment": "偏多",
+    "comment": "短期配息題材偏多，但中長期週期風險仍被反覆提醒。"
+  },
+  "public_vs_institution_snapshot": {
+    "public_view": "偏樂觀，較容易把高股息當成主要買進理由。",
+    "institution_view": "偏中性，認為合理價已反映不少配息與景氣修復預期。",
+    "divergence": "法人與公眾方向大致一致，且近期新聞偏多。"
+  },
+  "model_difference_explanation": "Buffett 3.0 與 Hybrid 對長榮較接近，因為它們沒有把景氣高峰獲利完全常態化；IMFS 的結果顯著偏高，較容易高估高度循環股。",
+  "final_conclusion": {
+    "valuation_label": "高估",
+    "action_label": "減碼",
+    "summary": "長榮目前較像合理區間內的高波動收益型標的，較適合減碼，不要把高股息直接等同於低風險。"
+  },
+  "risk_summary": [
+    "全球景氣放緩導致運價回落",
+    "供給增加壓縮未來獲利中樞",
+    "市場過度把高配息視為長期常態"
+  ],
+  "change_view_conditions": [
+    "若股價跌破合理區下緣且配息能力未惡化，可轉為偏多。",
+    "若景氣與運價持續優於中位數，合理價可小幅上修。",
+    "若全球景氣轉弱或供給壓力加重，應下修評價。"
+  ],
+  "generated_at": "2026-05-17T05:34:03+00:00"
+}

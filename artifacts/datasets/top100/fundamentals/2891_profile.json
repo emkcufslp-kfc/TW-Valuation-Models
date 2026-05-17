@@ -1,0 +1,19 @@
+{
+  "ticker": "2891",
+  "longName": "CTBC Financial Holding Co., Ltd.",
+  "sector": "Financial Services",
+  "industry": "Banks - Regional",
+  "sharesOutstanding": 19677817000,
+  "marketCap": 1078344351744,
+  "priceToBook": 2.2079859,
+  "dividendYield": 4.19,
+  "trailingPE": 13.497537,
+  "trailingEps": 4.06,
+  "currentPrice": 54.8,
+  "regularMarketPrice": 54.8,
+  "previousClose": 54.9,
+  "currentRatio": 2.41,
+  "debtToEquity": 122.809,
+  "currency": "TWD",
+  "source": "yfinance"
+}

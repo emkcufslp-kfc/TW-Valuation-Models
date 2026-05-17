@@ -1,0 +1,19 @@
+{
+  "ticker": "2383",
+  "longName": "Elite Material Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 358321000,
+  "marketCap": 1762939240448,
+  "priceToBook": 36.77185,
+  "dividendYield": 0.34,
+  "trailingPE": 120.23461,
+  "trailingEps": 40.92,
+  "currentPrice": 4920.0,
+  "regularMarketPrice": 4920.0,
+  "previousClose": 4930.0,
+  "currentRatio": 1.328,
+  "debtToEquity": 52.549,
+  "currency": "TWD",
+  "source": "yfinance"
+}

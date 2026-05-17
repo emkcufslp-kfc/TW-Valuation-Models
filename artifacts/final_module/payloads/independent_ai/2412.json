@@ -1,0 +1,27 @@
+{
+  "ticker": "2412",
+  "as_of_date": "2026-05-17",
+  "industry_bucket": "防禦型高股息股",
+  "valuation_method_primary": "股利折現法",
+  "valuation_method_secondary": "收益殖利率估值法",
+  "fair_value_low": 131.69,
+  "fair_value_base": 141.21,
+  "fair_value_high": 149.36,
+  "valuation_conclusion": "fair",
+  "action_stance": "hold",
+  "confidence": "medium_high",
+  "reasoning_summary": "中華電信具穩定現金流、配息與防禦性，但由於成長性有限，估值應主要建立在收益與穩定性，而不是高成長溢價上。",
+  "calculation_logic_summary": "先以可持續股利能力推算合理殖利率區間，再用穩定收益型資產的現金流估值做交叉驗證。這類標的的估值核心是收益可持續性與防守價值。",
+  "key_assumptions": [
+    "未來股利能力維持穩定",
+    "成長率維持低個位數",
+    "市場願意為穩定收益資產支付適度溢價"
+  ],
+  "key_risks": [
+    "若配息政策改變，評價中樞可能下降",
+    "若利率環境改變，高股息資產吸引力可能下降",
+    "成長性不足限制評價上修空間"
+  ],
+  "market_context_used": true,
+  "generated_at": "2026-05-17T05:34:03+00:00"
+}

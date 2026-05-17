@@ -1,0 +1,19 @@
+{
+  "ticker": "2379",
+  "longName": "Realtek Semiconductor Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 515512000,
+  "marketCap": 295903887360,
+  "priceToBook": 5.668408,
+  "dividendYield": 4.62,
+  "trailingPE": 20.470755,
+  "trailingEps": 28.04,
+  "currentPrice": 574.0,
+  "regularMarketPrice": 574.0,
+  "previousClose": 552.0,
+  "currentRatio": 1.302,
+  "debtToEquity": 21.797,
+  "currency": "TWD",
+  "source": "yfinance"
+}

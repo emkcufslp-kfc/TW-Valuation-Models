@@ -1,0 +1,19 @@
+{
+  "ticker": "6415",
+  "longName": "Silergy Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 388065000,
+  "marketCap": 195196698624,
+  "priceToBook": 5.230865,
+  "dividendYield": 0.55,
+  "trailingPE": 80.35143,
+  "trailingEps": 6.26,
+  "currentPrice": 503.0,
+  "regularMarketPrice": 503.0,
+  "previousClose": 467.5,
+  "currentRatio": 7.049,
+  "debtToEquity": 9.507,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "1519",
+  "longName": "Fortune Electric Co., Ltd.",
+  "sector": "Industrials",
+  "industry": "Electrical Equipment & Parts",
+  "sharesOutstanding": 315881000,
+  "marketCap": 274816466944,
+  "priceToBook": 25.967047,
+  "dividendYield": 1.01,
+  "trailingPE": 62.320915,
+  "trailingEps": 13.96,
+  "currentPrice": 870.0,
+  "regularMarketPrice": 870.0,
+  "previousClose": 895.0,
+  "currentRatio": 1.655,
+  "debtToEquity": 26.559,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2603",
+  "longName": "Evergreen Marine Corporation (Taiwan) Ltd.",
+  "sector": "Industrials",
+  "industry": "Marine Shipping",
+  "sharesOutstanding": 2165043000,
+  "marketCap": 457906585600,
+  "priceToBook": 0.8121527,
+  "dividendYield": 15.48,
+  "trailingPE": 6.6824646,
+  "trailingEps": 31.65,
+  "currentPrice": 211.5,
+  "regularMarketPrice": 211.5,
+  "previousClose": 210.0,
+  "currentRatio": 1.597,
+  "debtToEquity": 29.958,
+  "currency": "TWD",
+  "source": "yfinance"
+}

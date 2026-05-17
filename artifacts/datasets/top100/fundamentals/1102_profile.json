@@ -1,0 +1,19 @@
+{
+  "ticker": "1102",
+  "longName": "Asia Cement Corporation",
+  "sector": "Basic Materials",
+  "industry": "Building Materials",
+  "sharesOutstanding": 3546563000,
+  "marketCap": 124839026688,
+  "priceToBook": 0.69247717,
+  "dividendYield": 6.23,
+  "trailingPE": 11.772575,
+  "trailingEps": 2.99,
+  "currentPrice": 35.2,
+  "regularMarketPrice": 35.2,
+  "previousClose": 35.3,
+  "currentRatio": 1.603,
+  "debtToEquity": 47.405,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2454",
+  "longName": "MediaTek Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 1596101322,
+  "marketCap": 5434725367808,
+  "priceToBook": 13.891325,
+  "dividendYield": 1.53,
+  "trailingPE": 51.544052,
+  "trailingEps": 66.06,
+  "currentPrice": 3405.0,
+  "regularMarketPrice": 3405.0,
+  "previousClose": 3495.0,
+  "currentRatio": 1.221,
+  "debtToEquity": 4.126,
+  "currency": "TWD",
+  "source": "yfinance"
+}

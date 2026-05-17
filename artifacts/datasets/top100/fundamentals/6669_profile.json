@@ -1,0 +1,19 @@
+{
+  "ticker": "6669",
+  "longName": "Wiwynn Corporation",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 185840791,
+  "marketCap": 1010044633088,
+  "priceToBook": 7.206149,
+  "dividendYield": 1.33,
+  "trailingPE": 20.462334,
+  "trailingEps": 265.61,
+  "currentPrice": 5435.0,
+  "regularMarketPrice": 5435.0,
+  "previousClose": 5580.0,
+  "currentRatio": 1.534,
+  "debtToEquity": 76.337,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,420 @@
+{
+  "top_n": 20,
+  "models": {
+    "buffett3": {
+      "label": "Buffett 3.0",
+      "metric_label": "margin_of_safety_pct",
+      "rankings": [
+        {
+          "rank": 1,
+          "ticker": "1402",
+          "name": "遠東新世紀股份有限公司",
+          "margin_of_safety_pct": 52.2836
+        },
+        {
+          "rank": 2,
+          "ticker": "9910",
+          "name": "豐泰企業股份有限公司",
+          "margin_of_safety_pct": 32.9386
+        },
+        {
+          "rank": 3,
+          "ticker": "1795",
+          "name": "美時化學製藥股份有限公司",
+          "margin_of_safety_pct": 21.519
+        },
+        {
+          "rank": 4,
+          "ticker": "2357",
+          "name": "華碩電腦股份有限公司",
+          "margin_of_safety_pct": 14.8417
+        },
+        {
+          "rank": 5,
+          "ticker": "3034",
+          "name": "聯詠科技股份有限公司",
+          "margin_of_safety_pct": 12.75
+        },
+        {
+          "rank": 6,
+          "ticker": "1476",
+          "name": "儒鴻企業股份有限公司",
+          "margin_of_safety_pct": 8.1233
+        },
+        {
+          "rank": 7,
+          "ticker": "2603",
+          "name": "長榮海運股份有限公司",
+          "margin_of_safety_pct": -1.1258
+        },
+        {
+          "rank": 8,
+          "ticker": "2207",
+          "name": "和泰汽車股份有限公司",
+          "margin_of_safety_pct": -1.7109
+        },
+        {
+          "rank": 9,
+          "ticker": "2379",
+          "name": "瑞昱半導體股份有限公司",
+          "margin_of_safety_pct": -2.756
+        },
+        {
+          "rank": 10,
+          "ticker": "2404",
+          "name": "漢唐集成股份有限公司",
+          "margin_of_safety_pct": -7.1137
+        },
+        {
+          "rank": 11,
+          "ticker": "1102",
+          "name": "亞洲水泥股份有限公司",
+          "margin_of_safety_pct": -9.1984
+        },
+        {
+          "rank": 12,
+          "ticker": "2377",
+          "name": "微星科技股份有限公司",
+          "margin_of_safety_pct": -10.9505
+        },
+        {
+          "rank": 13,
+          "ticker": "1216",
+          "name": "統一企業股份有限公司",
+          "margin_of_safety_pct": -13.9237
+        },
+        {
+          "rank": 14,
+          "ticker": "6139",
+          "name": "亞翔工程股份有限公司",
+          "margin_of_safety_pct": -17.8546
+        },
+        {
+          "rank": 15,
+          "ticker": "3036",
+          "name": "文曄科技股份有限公司",
+          "margin_of_safety_pct": -19.729
+        },
+        {
+          "rank": 16,
+          "ticker": "2441",
+          "name": "超豐電子股份有限公司",
+          "margin_of_safety_pct": -20.6966
+        },
+        {
+          "rank": 17,
+          "ticker": "3008",
+          "name": "大立光電股份有限公司",
+          "margin_of_safety_pct": -21.6712
+        },
+        {
+          "rank": 18,
+          "ticker": "2317",
+          "name": "鴻海精密工業股份有限公司",
+          "margin_of_safety_pct": -22.8706
+        },
+        {
+          "rank": 19,
+          "ticker": "4904",
+          "name": "遠傳電信股份有限公司",
+          "margin_of_safety_pct": -24.586
+        },
+        {
+          "rank": 20,
+          "ticker": "2881",
+          "name": "富邦金融控股股份有限公司",
+          "margin_of_safety_pct": -24.7854
+        }
+      ]
+    },
+    "quant": {
+      "label": "Quant",
+      "metric_label": "score",
+      "rankings": [
+        {
+          "rank": 1,
+          "ticker": "3443",
+          "name": "創意電子股份有限公司",
+          "score": 64.0
+        },
+        {
+          "rank": 2,
+          "ticker": "7769",
+          "name": "鴻勁精密股份有限公司",
+          "score": 64.0
+        },
+        {
+          "rank": 3,
+          "ticker": "2395",
+          "name": "研華股份有限公司",
+          "score": 64.0
+        },
+        {
+          "rank": 4,
+          "ticker": "3034",
+          "name": "聯詠科技股份有限公司",
+          "score": 63.0
+        },
+        {
+          "rank": 5,
+          "ticker": "2603",
+          "name": "長榮海運股份有限公司",
+          "score": 62.0
+        },
+        {
+          "rank": 6,
+          "ticker": "2301",
+          "name": "光寶科技股份有限公司",
+          "score": 61.0
+        },
+        {
+          "rank": 7,
+          "ticker": "2368",
+          "name": "金像電子(股)公司",
+          "score": 61.0
+        },
+        {
+          "rank": 8,
+          "ticker": "2317",
+          "name": "鴻海精密工業股份有限公司",
+          "score": 59.0
+        },
+        {
+          "rank": 9,
+          "ticker": "3008",
+          "name": "大立光電股份有限公司",
+          "score": 59.0
+        },
+        {
+          "rank": 10,
+          "ticker": "3036",
+          "name": "文曄科技股份有限公司",
+          "score": 59.0
+        },
+        {
+          "rank": 11,
+          "ticker": "2454",
+          "name": "聯發科技股份有限公司",
+          "score": 58.0
+        },
+        {
+          "rank": 12,
+          "ticker": "3661",
+          "name": "世芯電子股份有限公司",
+          "score": 58.0
+        },
+        {
+          "rank": 13,
+          "ticker": "6781",
+          "name": "AES Holding Co., Ltd.",
+          "score": 57.0
+        },
+        {
+          "rank": 14,
+          "ticker": "1560",
+          "name": "中國砂輪企業股份有限公司",
+          "score": 57.0
+        },
+        {
+          "rank": 15,
+          "ticker": "2303",
+          "name": "聯華電子股份有限公司",
+          "score": 57.0
+        },
+        {
+          "rank": 16,
+          "ticker": "2357",
+          "name": "華碩電腦股份有限公司",
+          "score": 55.0
+        },
+        {
+          "rank": 17,
+          "ticker": "2059",
+          "name": "川湖科技股份有限公司",
+          "score": 54.0
+        },
+        {
+          "rank": 18,
+          "ticker": "2885",
+          "name": "元大金融控股股份有限公司",
+          "score": 54.0
+        },
+        {
+          "rank": 19,
+          "ticker": "3017",
+          "name": "奇鋐科技股份有限公司",
+          "score": 54.0
+        },
+        {
+          "rank": 20,
+          "ticker": "2360",
+          "name": "致茂電子股份有限公司",
+          "score": 54.0
+        }
+      ]
+    },
+    "hybrid": {
+      "label": "Hybrid",
+      "metric_label": "expected_return_pct",
+      "rankings": [
+        {
+          "rank": 1,
+          "ticker": "7769",
+          "name": "鴻勁精密股份有限公司",
+          "expected_return_pct": 69.877
+        },
+        {
+          "rank": 2,
+          "ticker": "3443",
+          "name": "創意電子股份有限公司",
+          "expected_return_pct": 52.675
+        },
+        {
+          "rank": 3,
+          "ticker": "6278",
+          "name": "台灣表面黏著科技股份有限公司",
+          "expected_return_pct": 52.507
+        },
+        {
+          "rank": 4,
+          "ticker": "6415",
+          "name": "矽力杰股份有限公司",
+          "expected_return_pct": 46.685
+        },
+        {
+          "rank": 5,
+          "ticker": "6789",
+          "name": "采鈺科技股份有限公司",
+          "expected_return_pct": 40.983
+        },
+        {
+          "rank": 6,
+          "ticker": "2408",
+          "name": "南亞科技股份有限公司",
+          "expected_return_pct": 38.422
+        },
+        {
+          "rank": 7,
+          "ticker": "2383",
+          "name": "台光電子材料股份有限公司",
+          "expected_return_pct": 37.937
+        },
+        {
+          "rank": 8,
+          "ticker": "8210",
+          "name": "勤誠興業股份有限公司",
+          "expected_return_pct": 36.533
+        },
+        {
+          "rank": 9,
+          "ticker": "2395",
+          "name": "研華股份有限公司",
+          "expected_return_pct": 33.087
+        },
+        {
+          "rank": 10,
+          "ticker": "3583",
+          "name": "辛耘企業股份有限公司",
+          "expected_return_pct": 32.216
+        },
+        {
+          "rank": 11,
+          "ticker": "8046",
+          "name": "南亞電路板股份有限公司",
+          "expected_return_pct": 31.443
+        },
+        {
+          "rank": 12,
+          "ticker": "3189",
+          "name": "景碩科技股份有限公司",
+          "expected_return_pct": 30.248
+        },
+        {
+          "rank": 13,
+          "ticker": "2451",
+          "name": "創見資訊股份有限公司",
+          "expected_return_pct": 29.729
+        },
+        {
+          "rank": 14,
+          "ticker": "3450",
+          "name": "聯鈞光電股份有限公司",
+          "expected_return_pct": 29.497
+        },
+        {
+          "rank": 15,
+          "ticker": "3006",
+          "name": "晶豪科技股份有限公司",
+          "expected_return_pct": 29.139
+        },
+        {
+          "rank": 16,
+          "ticker": "3711",
+          "name": "日月光投資控股股份有限公司",
+          "expected_return_pct": 28.928
+        },
+        {
+          "rank": 17,
+          "ticker": "6669",
+          "name": "緯穎科技服務股份有限公司",
+          "expected_return_pct": 28.782
+        },
+        {
+          "rank": 18,
+          "ticker": "2301",
+          "name": "光寶科技股份有限公司",
+          "expected_return_pct": 28.532
+        },
+        {
+          "rank": 19,
+          "ticker": "2360",
+          "name": "致茂電子股份有限公司",
+          "expected_return_pct": 28.446
+        },
+        {
+          "rank": 20,
+          "ticker": "2345",
+          "name": "智邦科技股份有限公司",
+          "expected_return_pct": 28.359
+        }
+      ]
+    }
+  },
+  "pairwise_overlap": [
+    {
+      "left_model": "Buffett 3.0",
+      "right_model": "Quant",
+      "top_n": 20,
+      "overlap_count": 6,
+      "overlap_tickers": [
+        "2357",
+        "3034",
+        "2603",
+        "3036",
+        "3008",
+        "2317"
+      ]
+    },
+    {
+      "left_model": "Buffett 3.0",
+      "right_model": "Hybrid",
+      "top_n": 20,
+      "overlap_count": 0,
+      "overlap_tickers": []
+    },
+    {
+      "left_model": "Quant",
+      "right_model": "Hybrid",
+      "top_n": 20,
+      "overlap_count": 5,
+      "overlap_tickers": [
+        "3443",
+        "7769",
+        "2395",
+        "2301",
+        "2360"
+      ]
+    }
+  ],
+  "shared_top_tickers_all_models": []
+}

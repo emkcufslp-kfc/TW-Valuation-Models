@@ -1,0 +1,19 @@
+{
+  "ticker": "3443",
+  "longName": "Global Unichip Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 134011000,
+  "marketCap": 680105803776,
+  "priceToBook": 46.63408,
+  "dividendYield": 0.3,
+  "trailingPE": 179.64601,
+  "trailingEps": 28.25,
+  "currentPrice": 5075.0,
+  "regularMarketPrice": 5075.0,
+  "previousClose": 5330.0,
+  "currentRatio": 1.584,
+  "debtToEquity": 2.032,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "3035",
+  "longName": "Faraday Technology Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductor Equipment & Materials",
+  "sharesOutstanding": 260550313,
+  "marketCap": 51719237632,
+  "priceToBook": 3.9612062,
+  "dividendYield": 1.55,
+  "trailingPE": 71.14696,
+  "trailingEps": 2.79,
+  "currentPrice": 198.5,
+  "regularMarketPrice": 198.5,
+  "previousClose": 194.0,
+  "currentRatio": 2.391,
+  "debtToEquity": 2.413,
+  "currency": "TWD",
+  "source": "yfinance"
+}

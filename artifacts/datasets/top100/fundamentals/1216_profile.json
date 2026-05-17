@@ -1,0 +1,19 @@
+{
+  "ticker": "1216",
+  "longName": "Uni-President Enterprises Corp.",
+  "sector": "Consumer Defensive",
+  "industry": "Packaged Foods",
+  "sharesOutstanding": 5682015000,
+  "marketCap": 425014755328,
+  "priceToBook": 2.937365,
+  "dividendYield": 3.99,
+  "trailingPE": 21.744186,
+  "trailingEps": 3.44,
+  "currentPrice": 74.8,
+  "regularMarketPrice": 74.8,
+  "previousClose": 75.2,
+  "currentRatio": 0.883,
+  "debtToEquity": 141.344,
+  "currency": "TWD",
+  "source": "yfinance"
+}

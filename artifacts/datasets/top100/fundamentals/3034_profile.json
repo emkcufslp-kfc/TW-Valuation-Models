@@ -1,0 +1,19 @@
+{
+  "ticker": "3034",
+  "longName": "Novatek Microelectronics Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 608511469,
+  "marketCap": 299996151808,
+  "priceToBook": 4.1707907,
+  "dividendYield": 5.76,
+  "trailingPE": 18.361265,
+  "trailingEps": 26.85,
+  "currentPrice": 493.0,
+  "regularMarketPrice": 493.0,
+  "previousClose": 486.5,
+  "currentRatio": 3.637,
+  "debtToEquity": 0.791,
+  "currency": "TWD",
+  "source": "yfinance"
+}

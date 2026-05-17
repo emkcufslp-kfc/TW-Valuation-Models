@@ -1,0 +1,19 @@
+{
+  "ticker": "1301",
+  "longName": "Formosa Plastics Corporation",
+  "sector": "Basic Materials",
+  "industry": "Specialty Chemicals",
+  "sharesOutstanding": 6365741000,
+  "marketCap": 293460639744,
+  "priceToBook": 0.80793566,
+  "dividendYield": 1.07,
+  "trailingPE": null,
+  "trailingEps": -1.58,
+  "currentPrice": 46.1,
+  "regularMarketPrice": 46.1,
+  "previousClose": 46.9,
+  "currentRatio": 2.05,
+  "debtToEquity": 41.634,
+  "currency": "TWD",
+  "source": "yfinance"
+}

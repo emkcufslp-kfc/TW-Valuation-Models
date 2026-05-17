@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-05-17T09:43:19+00:00",
+  "as_of_date": "2026-05-17",
+  "tickers": [
+    "2382"
+  ],
+  "entry_count": 3,
+  "success_count": 3,
+  "error_count": 0,
+  "results": [
+    {
+      "source_id": "2382_yahoo_price_valuations_live",
+      "ticker": "2382",
+      "category": "institutional",
+      "url": "https://tw.stock.yahoo.com/quote/2382.TW/price-valuations",
+      "title": "廣達(2382.TW) 估價 - Yahoo股市",
+      "publish_date": "2026-05-17",
+      "raw_file": "D:\\Claude projects\\主觀看盤\\data\\final_module\\raw\\2382\\institutional\\20260517_2382_yahoo_price_valuations_live.html",
+      "manifest_file": "D:\\Claude projects\\主觀看盤\\data\\final_module\\manifests\\2382\\2382_yahoo_price_valuations_live.json",
+      "status": "downloaded",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "downloaded_at": "2026-05-17T09:43:19+00:00",
+      "used_insecure_ssl": false
+    },
+    {
+      "source_id": "2382_yahoo_news_live",
+      "ticker": "2382",
+      "category": "news",
+      "url": "https://tw.stock.yahoo.com/quote/2382.TW/news",
+      "title": "廣達(2382.TW) 相關新聞 - Yahoo股市",
+      "publish_date": "2026-05-17",
+      "raw_file": "D:\\Claude projects\\主觀看盤\\data\\final_module\\raw\\2382\\news\\20260517_2382_yahoo_news_live.html",
+      "manifest_file": "D:\\Claude projects\\主觀看盤\\data\\final_module\\manifests\\2382\\2382_yahoo_news_live.json",
+      "status": "downloaded",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "downloaded_at": "2026-05-17T09:43:19+00:00",
+      "used_insecure_ssl": false
+    },
+    {
+      "source_id": "2382_ptt_search_live",
+      "ticker": "2382",
+      "category": "public",
+      "url": "https://www.pttweb.cc/search?q=2382",
+      "title": "批踢踢PTT 搜尋引擎 - PTT網頁版",
+      "publish_date": "2026-05-17",
+      "raw_file": "D:\\Claude projects\\主觀看盤\\data\\final_module\\raw\\2382\\public\\20260517_2382_ptt_search_live.html",
+      "manifest_file": "D:\\Claude projects\\主觀看盤\\data\\final_module\\manifests\\2382\\2382_ptt_search_live.json",
+      "status": "downloaded",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "downloaded_at": "2026-05-17T09:43:19+00:00",
+      "used_insecure_ssl": false
+    }
+  ]
+}

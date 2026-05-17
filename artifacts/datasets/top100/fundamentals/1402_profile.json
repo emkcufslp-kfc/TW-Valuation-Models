@@ -1,0 +1,19 @@
+{
+  "ticker": "1402",
+  "longName": "Far Eastern New Century Corporation",
+  "sector": "Consumer Cyclical",
+  "industry": "Textile Manufacturing",
+  "sharesOutstanding": 5352096000,
+  "marketCap": 143168569344,
+  "priceToBook": 0.62412506,
+  "dividendYield": 5.98,
+  "trailingPE": 17.258064,
+  "trailingEps": 1.55,
+  "currentPrice": 26.75,
+  "regularMarketPrice": 26.75,
+  "previousClose": 26.75,
+  "currentRatio": 1.048,
+  "debtToEquity": 83.712,
+  "currency": "TWD",
+  "source": "yfinance"
+}

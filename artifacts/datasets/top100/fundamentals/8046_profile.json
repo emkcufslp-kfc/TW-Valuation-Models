@@ -1,0 +1,19 @@
+{
+  "ticker": "8046",
+  "longName": "Nan Ya Printed Circuit Board Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 646165487,
+  "marketCap": 547302178816,
+  "priceToBook": 11.866236,
+  "dividendYield": 0.12,
+  "trailingPE": 283.2776,
+  "trailingEps": 2.99,
+  "currentPrice": 847.0,
+  "regularMarketPrice": 847.0,
+  "previousClose": 880.0,
+  "currentRatio": 3.286,
+  "debtToEquity": 2.677,
+  "currency": "TWD",
+  "source": "yfinance"
+}

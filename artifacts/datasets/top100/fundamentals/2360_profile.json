@@ -1,0 +1,19 @@
+{
+  "ticker": "2360",
+  "longName": "Chroma ATE Inc.",
+  "sector": "Technology",
+  "industry": "Scientific & Technical Instruments",
+  "sharesOutstanding": 423591163,
+  "marketCap": 957316071424,
+  "priceToBook": 30.012083,
+  "dividendYield": 0.37,
+  "trailingPE": 82.42159,
+  "trailingEps": 27.42,
+  "currentPrice": 2260.0,
+  "regularMarketPrice": 2260.0,
+  "previousClose": 2405.0,
+  "currentRatio": null,
+  "debtToEquity": 11.942,
+  "currency": "TWD",
+  "source": "yfinance"
+}

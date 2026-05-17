@@ -1,0 +1,19 @@
+{
+  "ticker": "2882",
+  "longName": "Cathay Financial Holding Co., Ltd.",
+  "sector": "Financial Services",
+  "industry": "Insurance - Life",
+  "sharesOutstanding": 14669210000,
+  "marketCap": 1125128339456,
+  "priceToBook": 1.2324057,
+  "dividendYield": 4.53,
+  "trailingPE": 10.864022,
+  "trailingEps": 7.06,
+  "currentPrice": 76.7,
+  "regularMarketPrice": 76.7,
+  "previousClose": 77.3,
+  "currentRatio": 24.143,
+  "debtToEquity": 85.465,
+  "currency": "TWD",
+  "source": "yfinance"
+}

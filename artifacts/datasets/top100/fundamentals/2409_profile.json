@@ -1,0 +1,19 @@
+{
+  "ticker": "2409",
+  "longName": "AUO Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 7547098972,
+  "marketCap": 147545784320,
+  "priceToBook": 0.98672587,
+  "dividendYield": 5.96,
+  "trailingPE": 21.722221,
+  "trailingEps": 0.9,
+  "currentPrice": 19.55,
+  "regularMarketPrice": 19.55,
+  "previousClose": 20.2,
+  "currentRatio": 1.118,
+  "debtToEquity": 64.858,
+  "currency": "TWD",
+  "source": "yfinance"
+}

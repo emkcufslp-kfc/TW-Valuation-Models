@@ -1,0 +1,19 @@
+{
+  "ticker": "6770",
+  "longName": "Powerchip Semiconductor Manufacturing Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 4267366414,
+  "marketCap": 265430188032,
+  "priceToBook": 3.2040386,
+  "dividendYield": null,
+  "trailingPE": null,
+  "trailingEps": -1.86,
+  "currentPrice": 62.2,
+  "regularMarketPrice": 62.2,
+  "previousClose": 60.5,
+  "currentRatio": 3.117,
+  "debtToEquity": 36.172,
+  "currency": "TWD",
+  "source": "yfinance"
+}

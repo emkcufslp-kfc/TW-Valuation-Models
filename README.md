@@ -253,7 +253,7 @@ python -m compileall tw_valuation_models tests app.py streamlit_app.py
 ## 已知限制
 
 - `新聞 / 法人 / 公眾評論` 目前已是即時更新，但對非 pilot ticker 的抽取深度仍可再強化
-- 若公開部署環境沒有外部模型 repo，`IMFS / 台股 Buffett Quant / 混合模型` 會進入 demo 降級模式
+- `IMFS / 台股 Buffett Quant / 混合模型` 已隨 repo 內建；若這三個模型顯示 `unavailable`，通常代表部署環境讀取 `_external/` 失敗或被手動覆寫到錯誤路徑
 - `Final AI` 的市場脈絡品質目前在下列 ticker 最成熟：
   - `2330`
   - `2881`

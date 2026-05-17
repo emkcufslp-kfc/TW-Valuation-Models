@@ -1,0 +1,19 @@
+{
+  "ticker": "2368",
+  "longName": "Gold Circuit Electronics Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 499979000,
+  "marketCap": 714969972736,
+  "priceToBook": 21.35444,
+  "dividendYield": 0.44,
+  "trailingPE": 75.10504,
+  "trailingEps": 19.04,
+  "currentPrice": 1430.0,
+  "regularMarketPrice": 1430.0,
+  "previousClose": 1350.0,
+  "currentRatio": 2.045,
+  "debtToEquity": 53.98,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2395",
+  "longName": "Advantech Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 868254000,
+  "marketCap": 403738132480,
+  "priceToBook": 8.137622,
+  "dividendYield": 1.81,
+  "trailingPE": 38.366337,
+  "trailingEps": 12.12,
+  "currentPrice": 465.0,
+  "regularMarketPrice": 465.0,
+  "previousClose": 464.5,
+  "currentRatio": 1.654,
+  "debtToEquity": 4.404,
+  "currency": "TWD",
+  "source": "yfinance"
+}

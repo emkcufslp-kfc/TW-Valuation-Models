@@ -1,0 +1,19 @@
+{
+  "ticker": "6213",
+  "longName": "ITEQ Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 363562218,
+  "marketCap": 97434673152,
+  "priceToBook": 4.5763464,
+  "dividendYield": 0.63,
+  "trailingPE": 64.42308,
+  "trailingEps": 4.16,
+  "currentPrice": 268.0,
+  "regularMarketPrice": 268.0,
+  "previousClose": 273.5,
+  "currentRatio": 1.915,
+  "debtToEquity": 27.65,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "1303",
+  "longName": "Nan Ya Plastics Corporation",
+  "sector": "Basic Materials",
+  "industry": "Specialty Chemicals",
+  "sharesOutstanding": 7930822000,
+  "marketCap": 676499161088,
+  "priceToBook": 1.9020649,
+  "dividendYield": 0.81,
+  "trailingPE": 149.64912,
+  "trailingEps": 0.57,
+  "currentPrice": 85.3,
+  "regularMarketPrice": 85.3,
+  "previousClose": 86.5,
+  "currentRatio": 1.474,
+  "debtToEquity": 42.05,
+  "currency": "TWD",
+  "source": "yfinance"
+}

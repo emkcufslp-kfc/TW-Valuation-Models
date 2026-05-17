@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-05-17T17:26:57+00:00",
+  "as_of_date": "2026-05-18",
+  "tickers": [
+    "2330"
+  ],
+  "payload_count": 1,
+  "files": [
+    {
+      "ticker": "2330",
+      "independent_ai": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\payloads\\independent_ai\\2330.json",
+      "final_commentary": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\payloads\\final_commentary\\2330.json"
+    }
+  ]
+}

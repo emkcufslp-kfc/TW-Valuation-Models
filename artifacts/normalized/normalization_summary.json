@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-14T18:13:20+00:00",
+  "shared_data_root": "D:\\Claude projects\\主觀看盤\\data",
+  "normalized_root": "D:\\Codex projects\\TW Valuation models\\artifacts\\normalized",
+  "tables": [
+    {
+      "name": "universe_snapshot",
+      "source_path": "D:\\Claude projects\\主觀看盤\\data\\fundamentals\\company_info.csv",
+      "output_path": "D:\\Codex projects\\TW Valuation models\\artifacts\\normalized\\universe_snapshot.csv",
+      "row_count": 1973,
+      "grain": "snapshot",
+      "status": "ok",
+      "notes": [
+        "Derived from company_info.csv"
+      ]
+    },
+    {
+      "name": "valuation_snapshot",
+      "source_path": "D:\\Claude projects\\主觀看盤\\data\\fundamentals\\valuation.csv",
+      "output_path": "D:\\Codex projects\\TW Valuation models\\artifacts\\normalized\\valuation_snapshot.csv",
+      "row_count": 1960,
+      "grain": "snapshot",
+      "status": "warning",
+      "notes": [
+        "No historical date column is available in the source snapshot"
+      ]
+    },
+    {
+      "name": "fundamentals_snapshot",
+      "source_path": "D:\\Claude projects\\主觀看盤\\data\\fundamentals\\yfinance_fundamentals.csv",
+      "output_path": "D:\\Codex projects\\TW Valuation models\\artifacts\\normalized\\fundamentals_snapshot.csv",
+      "row_count": 222,
+      "grain": "snapshot",
+      "status": "warning",
+      "notes": [
+        "No report_date or fiscal_period is available in the source snapshot"
+      ]
+    },
+    {
+      "name": "price_daily",
+      "source_path": "D:\\Claude projects\\主觀看盤\\data\\raw",
+      "output_path": "D:\\Codex projects\\TW Valuation models\\artifacts\\normalized\\price_daily.csv",
+      "row_count": 623006,
+      "grain": "time_series",
+      "status": "ok",
+      "notes": [
+        "Ticker is derived from the raw file name"
+      ]
+    },
+    {
+      "name": "benchmark_daily",
+      "source_path": "D:\\Claude projects\\主觀看盤\\data\\raw\\TAIEX.csv",
+      "output_path": "D:\\Codex projects\\TW Valuation models\\artifacts\\normalized\\benchmark_daily.csv",
+      "row_count": 2765,
+      "grain": "time_series",
+      "status": "ok",
+      "notes": [
+        "Derived from raw/TAIEX.csv"
+      ]
+    }
+  ]
+}

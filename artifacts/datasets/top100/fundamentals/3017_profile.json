@@ -1,0 +1,19 @@
+{
+  "ticker": "3017",
+  "longName": "Asia Vital Components Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 392178807,
+  "marketCap": 1002016866304,
+  "priceToBook": 22.382242,
+  "dividendYield": 0.38,
+  "trailingPE": 52.85478,
+  "trailingEps": 48.34,
+  "currentPrice": 2555.0,
+  "regularMarketPrice": 2555.0,
+  "previousClose": 2585.0,
+  "currentRatio": 1.294,
+  "debtToEquity": 50.386,
+  "currency": "TWD",
+  "source": "yfinance"
+}

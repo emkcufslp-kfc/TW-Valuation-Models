@@ -1,0 +1,207 @@
+{
+  "ticker": "1301",
+  "company_name": "台灣塑膠工業股份有限公司",
+  "valuation_date": "2026-05-17T08:22:34+00:00",
+  "classification": "cyclical",
+  "company_type": "cyclical",
+  "classification_reason": "industry_exact_matches_cyclical_bucket",
+  "classification_confidence": "high",
+  "input_snapshot": {
+    "industry": "塑膠工業",
+    "current_price": 46.1,
+    "valuation_row_count": 1,
+    "dividend_row_count": 1,
+    "monthly_revenue_row_count": 1,
+    "annual_row_count": 5,
+    "quarterly_row_count": 1
+  },
+  "normalized_inputs": {
+    "normalized_eps": -1.5785529131643905,
+    "normalized_fcf_per_share": -1.055518647920695,
+    "normalized_bvps": 57.0589392499632,
+    "normalized_roe": -0.3601179010910714,
+    "normalized_dividend_capacity_per_share": 0.5,
+    "latest_price": 46.1,
+    "latest_pe_snapshot": null,
+    "latest_pb_snapshot": 0.75,
+    "latest_dividend_yield_snapshot": 1.09,
+    "latest_current_ratio": 1.8284909123894895,
+    "latest_debt_to_equity": 0.521022376686451,
+    "source_field_coverage": {
+      "annual_total_debt_non_null_rows": 0,
+      "annual_cash_and_equivalents_non_null_rows": 0,
+      "annual_operating_income_non_null_rows": 4,
+      "quarterly_total_debt_non_null_rows": 0,
+      "quarterly_cash_and_equivalents_non_null_rows": 0,
+      "quarterly_operating_income_non_null_rows": 1
+    },
+    "cyclical_ev_ebitda_blockers": [
+      "total_debt_missing_in_source_tables",
+      "cash_and_equivalents_missing_in_source_tables",
+      "clean_ebitda_series_not_available_in_current_dataset"
+    ],
+    "trend_flags": [
+      "latest_eps_below_3y_average",
+      "negative_average_fcf"
+    ],
+    "data_quality_flags": [],
+    "manual_review_flags": [
+      "cyclical_ev_ebitda_not_ready_without_clean_ebitda"
+    ]
+  },
+  "valuation_legs": [
+    {
+      "name": "mid_cycle_eps",
+      "weight": 0.3,
+      "status": "ready",
+      "inputs": {
+        "normalized_eps": -1.5785529131643905,
+        "normalized_fcf_per_share": -1.055518647920695,
+        "normalized_bvps": 57.0589392499632,
+        "normalized_roe": -0.3601179010910714,
+        "normalized_dividend_capacity_per_share": 0.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": 0.0,
+      "base_value": 0.0,
+      "bull_value": 0.0,
+      "blended_value": 0.0,
+      "notes": [
+        "negative_equity_leg_value_floored_to_zero"
+      ]
+    },
+    {
+      "name": "normalized_ev_ebitda",
+      "weight": 0.3,
+      "status": "not_ready",
+      "inputs": {
+        "normalized_eps": -1.5785529131643905,
+        "normalized_fcf_per_share": -1.055518647920695,
+        "normalized_bvps": 57.0589392499632,
+        "normalized_roe": -0.3601179010910714,
+        "normalized_dividend_capacity_per_share": 0.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": null,
+      "base_value": null,
+      "bull_value": null,
+      "blended_value": null,
+      "notes": [
+        "leg_has_missing_required_inputs",
+        "v1_keeps_ev_ebitda_visible_but_uncomputed",
+        "total_debt_missing_in_source_tables",
+        "cash_and_equivalents_missing_in_source_tables",
+        "clean_ebitda_series_not_available_in_current_dataset"
+      ]
+    },
+    {
+      "name": "replacement_asset_value",
+      "weight": 0.2,
+      "status": "ready",
+      "inputs": {
+        "normalized_eps": -1.5785529131643905,
+        "normalized_fcf_per_share": -1.055518647920695,
+        "normalized_bvps": 57.0589392499632,
+        "normalized_roe": -0.3601179010910714,
+        "normalized_dividend_capacity_per_share": 0.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": 51.353045324966885,
+      "base_value": 57.0589392499632,
+      "bull_value": 62.76483317495953,
+      "blended_value": 55.63246576871413,
+      "notes": []
+    },
+    {
+      "name": "trough_pb_downside",
+      "weight": 0.2,
+      "status": "ready",
+      "inputs": {
+        "normalized_eps": -1.5785529131643905,
+        "normalized_fcf_per_share": -1.055518647920695,
+        "normalized_bvps": 57.0589392499632,
+        "normalized_roe": -0.3601179010910714,
+        "normalized_dividend_capacity_per_share": 0.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": 39.941257474974236,
+      "base_value": 48.50009836246872,
+      "bull_value": 54.20599228746504,
+      "blended_value": 45.932446096220374,
+      "notes": []
+    }
+  ],
+  "scenario_weights": {
+    "conservative": 0.4,
+    "base": 0.45,
+    "bull": 0.15
+  },
+  "blended_normalized_valuation": 29.0185,
+  "blended_fair_value": 29.0185,
+  "modifiers": {
+    "macro_regime_modifier": {
+      "raw_score": 2,
+      "selected_bucket": "supportive",
+      "modifier_value": 1.03,
+      "reason": "latest_above_50d_and_200d_trend",
+      "data_source": "dataset.TAIEX"
+    },
+    "taiwan_risk_modifier": {
+      "raw_score": -1,
+      "selected_bucket": "default_country_risk_haircut",
+      "modifier_value": 0.92,
+      "reason": "v1_uses_conservative_taiwan_risk_discount",
+      "data_source": "static_v1_config"
+    },
+    "reality_validation_modifier": {
+      "raw_score": 2,
+      "selected_bucket": "supported",
+      "modifier_value": 1.03,
+      "reason": "latest_quarter_eps_positive,monthly_revenue_yoy_supportive",
+      "data_source": "buffett3_tables"
+    }
+  },
+  "final_fair_value_per_share": 28.3229,
+  "final_fair_value": 28.3229,
+  "current_price": 46.1,
+  "upside_downside_pct": -38.562,
+  "rating": "昂貴",
+  "data_quality_flags": [],
+  "manual_review_flags": [
+    "cyclical_ev_ebitda_not_ready_without_clean_ebitda",
+    "cyclical_model_uses_partial_leg_set"
+  ],
+  "formula_version": "buffett3_v1",
+  "signal": "避開",
+  "warnings": [
+    "valuation_weights_reallocated_over_ready_legs"
+  ]
+}

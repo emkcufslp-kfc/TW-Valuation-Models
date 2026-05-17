@@ -1,0 +1,19 @@
+{
+  "ticker": "2467",
+  "longName": "C Sun Mfg Ltd.",
+  "sector": "Industrials",
+  "industry": "Specialty Industrial Machinery",
+  "sharesOutstanding": 152872683,
+  "marketCap": 93252337664,
+  "priceToBook": 14.204545,
+  "dividendYield": 0.8,
+  "trailingPE": 120.315575,
+  "trailingEps": 5.07,
+  "currentPrice": 610.0,
+  "regularMarketPrice": 610.0,
+  "previousClose": 626.0,
+  "currentRatio": 1.172,
+  "debtToEquity": 60.817,
+  "currency": "TWD",
+  "source": "yfinance"
+}

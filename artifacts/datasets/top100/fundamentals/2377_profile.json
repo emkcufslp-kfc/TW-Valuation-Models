@@ -1,0 +1,19 @@
+{
+  "ticker": "2377",
+  "longName": "Micro-Star International Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 844856200,
+  "marketCap": 98848178176,
+  "priceToBook": 1.8103329,
+  "dividendYield": 4.76,
+  "trailingPE": 17.333334,
+  "trailingEps": 6.75,
+  "currentPrice": 117.0,
+  "regularMarketPrice": 117.0,
+  "previousClose": 115.5,
+  "currentRatio": 1.845,
+  "debtToEquity": 21.429,
+  "currency": "TWD",
+  "source": "yfinance"
+}

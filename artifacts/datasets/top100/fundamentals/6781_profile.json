@@ -1,0 +1,19 @@
+{
+  "ticker": "6781",
+  "longName": "Advanced Energy Solution Holding Co., Ltd.",
+  "sector": "Industrials",
+  "industry": "Electrical Equipment & Parts",
+  "sharesOutstanding": 85419000,
+  "marketCap": 101221515264,
+  "priceToBook": 6.0250154,
+  "dividendYield": 1.01,
+  "trailingPE": 31.029066,
+  "trailingEps": 38.19,
+  "currentPrice": 1185.0,
+  "regularMarketPrice": 1185.0,
+  "previousClose": 1240.0,
+  "currentRatio": 2.758,
+  "debtToEquity": 4.702,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2449",
+  "longName": "King Yuan Electronics Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 1222745000,
+  "marketCap": 361932521472,
+  "priceToBook": 7.1769753,
+  "dividendYield": 1.31,
+  "trailingPE": 45.53846,
+  "trailingEps": 6.5,
+  "currentPrice": 296.0,
+  "regularMarketPrice": 296.0,
+  "previousClose": 305.0,
+  "currentRatio": 1.523,
+  "debtToEquity": 71.157,
+  "currency": "TWD",
+  "source": "yfinance"
+}

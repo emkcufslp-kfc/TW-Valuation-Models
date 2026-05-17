@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-05-17T03:37:20+00:00",
+  "as_of_date": "2026-05-17",
+  "shared_data_root": "D:\\Claude projects\\主觀看盤\\data",
+  "final_module_shared_root": "D:\\Claude projects\\主觀看盤\\data\\final_module",
+  "normalized_root": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\normalized",
+  "tickers": [
+    "2330",
+    "2412",
+    "2603",
+    "2881"
+  ],
+  "counts": {
+    "institutional_consensus": 8,
+    "news_commentary": 8,
+    "public_commentary": 8,
+    "market_view_snapshot": 4
+  },
+  "files": {
+    "institutional_consensus": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\normalized\\institutional_consensus.csv",
+    "news_commentary": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\normalized\\news_commentary.csv",
+    "public_commentary": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\normalized\\public_commentary.csv",
+    "market_view_snapshot": "D:\\Codex projects\\TW Valuation models\\artifacts\\final_module\\normalized\\market_view_snapshot.csv"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "8150",
+  "longName": "ChipMOS TECHNOLOGIES INC.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 695418126,
+  "marketCap": 58345582592,
+  "priceToBook": 2.4462068,
+  "dividendYield": 1.44,
+  "trailingPE": 67.12,
+  "trailingEps": 1.25,
+  "currentPrice": 83.9,
+  "regularMarketPrice": 83.9,
+  "previousClose": 85.5,
+  "currentRatio": 2.403,
+  "debtToEquity": 68.0,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2049",
+  "longName": "Hiwin Technologies Corporation",
+  "sector": "Industrials",
+  "industry": "Tools & Accessories",
+  "sharesOutstanding": 353792240,
+  "marketCap": 132495196160,
+  "priceToBook": 3.547779,
+  "dividendYield": 0.66,
+  "trailingPE": 87.09302,
+  "trailingEps": 4.3,
+  "currentPrice": 374.5,
+  "regularMarketPrice": 374.5,
+  "previousClose": 364.5,
+  "currentRatio": 2.329,
+  "debtToEquity": 27.331,
+  "currency": "TWD",
+  "source": "yfinance"
+}

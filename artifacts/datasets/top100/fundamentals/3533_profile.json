@@ -1,0 +1,19 @@
+{
+  "ticker": "3533",
+  "longName": "Lotes Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 111933691,
+  "marketCap": 274237538304,
+  "priceToBook": 7.1334567,
+  "dividendYield": 1.61,
+  "trailingPE": 34.965034,
+  "trailingEps": 70.07,
+  "currentPrice": 2450.0,
+  "regularMarketPrice": 2450.0,
+  "previousClose": 2595.0,
+  "currentRatio": 3.691,
+  "debtToEquity": 2.559,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "7769",
+  "longName": "Hon. Precision, Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductor Equipment & Materials",
+  "sharesOutstanding": 179930000,
+  "marketCap": 1360270852096,
+  "priceToBook": 23.436846,
+  "dividendYield": 0.3,
+  "trailingPE": 99.61787,
+  "trailingEps": 75.89,
+  "currentPrice": 7560.0,
+  "regularMarketPrice": 7560.0,
+  "previousClose": 7440.0,
+  "currentRatio": 4.671,
+  "debtToEquity": 0.099,
+  "currency": "TWD",
+  "source": "yfinance"
+}

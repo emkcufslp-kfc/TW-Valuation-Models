@@ -1,0 +1,19 @@
+{
+  "ticker": "6531",
+  "longName": "AP Memory Technology Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 162847000,
+  "marketCap": 170989355008,
+  "priceToBook": 15.025328,
+  "dividendYield": 0.67,
+  "trailingPE": 136.36363,
+  "trailingEps": 7.7,
+  "currentPrice": 1050.0,
+  "regularMarketPrice": 1050.0,
+  "previousClose": 1040.0,
+  "currentRatio": 3.966,
+  "debtToEquity": 0.633,
+  "currency": "TWD",
+  "source": "yfinance"
+}

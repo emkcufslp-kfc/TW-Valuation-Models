@@ -1,0 +1,19 @@
+{
+  "ticker": "2382",
+  "longName": "Quanta Computer Inc.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 3854518400,
+  "marketCap": 1289336389632,
+  "priceToBook": 5.293308,
+  "dividendYield": 3.82,
+  "trailingPE": 17.698414,
+  "trailingEps": 18.9,
+  "currentPrice": 334.5,
+  "regularMarketPrice": 334.5,
+  "previousClose": 340.5,
+  "currentRatio": 1.215,
+  "debtToEquity": 126.101,
+  "currency": "TWD",
+  "source": "yfinance"
+}

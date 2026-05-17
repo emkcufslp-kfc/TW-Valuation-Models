@@ -1,0 +1,19 @@
+{
+  "ticker": "2002",
+  "longName": "China Steel Corporation",
+  "sector": "Basic Materials",
+  "industry": "Steel",
+  "sharesOutstanding": 15241737997,
+  "marketCap": 279624089600,
+  "priceToBook": 0.9519846,
+  "dividendYield": 1.79,
+  "trailingPE": null,
+  "trailingEps": -0.29,
+  "currentPrice": 18.3,
+  "regularMarketPrice": 18.3,
+  "previousClose": 18.4,
+  "currentRatio": 1.178,
+  "debtToEquity": 81.568,
+  "currency": "TWD",
+  "source": "yfinance"
+}

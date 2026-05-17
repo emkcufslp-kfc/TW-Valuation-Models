@@ -1,0 +1,65 @@
+{
+  "ticker": "2881",
+  "as_of_date": "2026-05-17",
+  "company_name": "富邦金融控股股份有限公司",
+  "internal_model_snapshot": {
+    "buffett3": {
+      "fair_value": 73.2876,
+      "conclusion": "高估",
+      "action": "避開",
+      "comment": "Buffett 3.0 對金融股的股利能力、ROE 與淨值要求較高，因此結果通常偏保守。"
+    },
+    "imfs": {
+      "fair_value": 79.3126,
+      "conclusion": "高估",
+      "action": "保守",
+      "comment": "IMFS 對金融股的成長支撐有限，因此估值通常不會像成長股那樣激進。"
+    },
+    "hybrid": {
+      "fair_value": 91.09,
+      "conclusion": "合理",
+      "action": "持有",
+      "comment": "較接近市場綜合定價。"
+    },
+    "quant": {
+      "score": 50.0,
+      "conclusion": "中性",
+      "action": "觀察",
+      "comment": "因子分數適合做排序輔助，不適合單獨取代估值結論。"
+    }
+  },
+  "independent_ai_snapshot": {
+    "fair_value_range": "86.42-98.15",
+    "base_fair_value": 92.14,
+    "conclusion": "合理",
+    "action": "持有",
+    "confidence": "中高"
+  },
+  "news_snapshot": {
+    "summary": "近期新聞主軸集中在：valuation。",
+    "sentiment": "中性",
+    "comment": "近期新聞多空交錯，較適合把它當成脈絡訊號，而不是單一結論依據。"
+  },
+  "public_vs_institution_snapshot": {
+    "public_view": "偏正向，存股族會特別重視配息與金控龍頭定位。",
+    "institution_view": "偏中性，認為價格大致落在合理區間，缺乏明顯低估空間。",
+    "divergence": "法人與公眾方向大致一致。"
+  },
+  "model_difference_explanation": "Buffett 3.0 與 IMFS 對金融股較保守，對配息與 ROE 要求較高；Hybrid 與獨立 AI 更接近市場對金控股『合理但不便宜』的看法。",
+  "final_conclusion": {
+    "valuation_label": "合理",
+    "action_label": "持有",
+    "summary": "富邦金融控股股份有限公司 屬於可持有的金融股，但以目前股價 94.6 元來看不算便宜，較適合持有或等待更佳殖利率。"
+  },
+  "risk_summary": [
+    "壽險與資本市場波動影響淨值",
+    "利率與匯率變動影響獲利品質",
+    "若配息不如預期，市場評價可能下修"
+  ],
+  "change_view_conditions": [
+    "若股價回落且殖利率明顯提升，可轉為偏多。",
+    "若 ROE 持續提升且市場給予更高 PB，合理價可上修。",
+    "若配息能力轉弱或淨值壓力升高，應下修評價。"
+  ],
+  "generated_at": "2026-05-17T09:40:56+00:00"
+}

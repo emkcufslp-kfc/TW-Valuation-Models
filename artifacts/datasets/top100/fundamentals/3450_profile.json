@@ -1,0 +1,19 @@
+{
+  "ticker": "3450",
+  "longName": "Elite Advanced Laser Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductor Equipment & Materials",
+  "sharesOutstanding": 145681000,
+  "marketCap": 61477380096,
+  "priceToBook": 12.141439,
+  "dividendYield": 0.15,
+  "trailingPE": 84.73895,
+  "trailingEps": 4.98,
+  "currentPrice": 422.0,
+  "regularMarketPrice": 422.0,
+  "previousClose": 441.0,
+  "currentRatio": 2.009,
+  "debtToEquity": 18.338,
+  "currency": "TWD",
+  "source": "yfinance"
+}

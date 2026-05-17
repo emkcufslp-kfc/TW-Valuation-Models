@@ -1,0 +1,19 @@
+{
+  "ticker": "3714",
+  "longName": "ENNOSTAR Inc.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 736658083,
+  "marketCap": 50240081920,
+  "priceToBook": 1.2033525,
+  "dividendYield": 1.29,
+  "trailingPE": null,
+  "trailingEps": -3.69,
+  "currentPrice": 68.2,
+  "regularMarketPrice": 68.2,
+  "previousClose": 70.0,
+  "currentRatio": 3.652,
+  "debtToEquity": 3.578,
+  "currency": "TWD",
+  "source": "yfinance"
+}

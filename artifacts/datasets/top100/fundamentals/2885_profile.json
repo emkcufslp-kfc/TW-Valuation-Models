@@ -1,0 +1,19 @@
+{
+  "ticker": "2885",
+  "longName": "Yuanta Financial Holding Co., Ltd.",
+  "sector": "Financial Services",
+  "industry": "Financial Conglomerates",
+  "sharesOutstanding": 13331150000,
+  "marketCap": 739878830080,
+  "priceToBook": 2.1734874,
+  "dividendYield": 2.7,
+  "trailingPE": 20.255474,
+  "trailingEps": 2.74,
+  "currentPrice": 55.5,
+  "regularMarketPrice": 55.5,
+  "previousClose": 55.8,
+  "currentRatio": 2.448,
+  "debtToEquity": 205.064,
+  "currency": "TWD",
+  "source": "yfinance"
+}

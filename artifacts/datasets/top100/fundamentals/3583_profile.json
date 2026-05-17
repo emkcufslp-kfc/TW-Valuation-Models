@@ -1,0 +1,19 @@
+{
+  "ticker": "3583",
+  "longName": "Scientech Corporation",
+  "sector": "Technology",
+  "industry": "Electronics & Computer Distribution",
+  "sharesOutstanding": 80346000,
+  "marketCap": 74641432576,
+  "priceToBook": 10.124237,
+  "dividendYield": 0.62,
+  "trailingPE": 69.17349,
+  "trailingEps": 13.43,
+  "currentPrice": 929.0,
+  "regularMarketPrice": 929.0,
+  "previousClose": 966.0,
+  "currentRatio": 1.093,
+  "debtToEquity": 2.426,
+  "currency": "TWD",
+  "source": "yfinance"
+}

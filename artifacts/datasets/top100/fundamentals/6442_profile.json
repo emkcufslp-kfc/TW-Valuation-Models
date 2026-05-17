@@ -1,0 +1,19 @@
+{
+  "ticker": "6442",
+  "longName": "EZconn Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 77873288,
+  "marketCap": 144454942720,
+  "priceToBook": 20.542408,
+  "dividendYield": 0.48,
+  "trailingPE": 80.933685,
+  "trailingEps": 22.92,
+  "currentPrice": 1855.0,
+  "regularMarketPrice": 1855.0,
+  "previousClose": 1805.0,
+  "currentRatio": 2.686,
+  "debtToEquity": 37.217,
+  "currency": "TWD",
+  "source": "yfinance"
+}

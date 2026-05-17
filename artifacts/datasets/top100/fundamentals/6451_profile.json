@@ -1,0 +1,19 @@
+{
+  "ticker": "6451",
+  "longName": "ShunSin Technology Holdings Limited",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 106173800,
+  "marketCap": 55741243392,
+  "priceToBook": 8.538945,
+  "dividendYield": 0.08,
+  "trailingPE": 2187.5,
+  "trailingEps": 0.24,
+  "currentPrice": 525.0,
+  "regularMarketPrice": 525.0,
+  "previousClose": 478.0,
+  "currentRatio": 1.793,
+  "debtToEquity": 125.975,
+  "currency": "TWD",
+  "source": "yfinance"
+}

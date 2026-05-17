@@ -1,0 +1,19 @@
+{
+  "ticker": "2404",
+  "longName": "United Integrated Services Co., Ltd.",
+  "sector": "Industrials",
+  "industry": "Engineering & Construction",
+  "sharesOutstanding": 188886700,
+  "marketCap": 198331039744,
+  "priceToBook": 10.648764,
+  "dividendYield": 2.82,
+  "trailingPE": 21.980322,
+  "trailingEps": 47.77,
+  "currentPrice": 1050.0,
+  "regularMarketPrice": 1050.0,
+  "previousClose": 1025.0,
+  "currentRatio": 1.269,
+  "debtToEquity": 1.26,
+  "currency": "TWD",
+  "source": "yfinance"
+}

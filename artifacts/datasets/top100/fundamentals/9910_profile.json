@@ -1,0 +1,19 @@
+{
+  "ticker": "9910",
+  "longName": "Feng Tay Enterprises Co., Ltd.",
+  "sector": "Consumer Cyclical",
+  "industry": "Footwear & Accessories",
+  "sharesOutstanding": 987482720,
+  "marketCap": 69617532928,
+  "priceToBook": 2.6978416,
+  "dividendYield": 6.94,
+  "trailingPE": 13.823529,
+  "trailingEps": 5.1,
+  "currentPrice": 70.5,
+  "regularMarketPrice": 70.5,
+  "previousClose": 71.6,
+  "currentRatio": 1.788,
+  "debtToEquity": 23.095,
+  "currency": "TWD",
+  "source": "yfinance"
+}

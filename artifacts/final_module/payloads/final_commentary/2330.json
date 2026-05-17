@@ -1,0 +1,65 @@
+{
+  "ticker": "2330",
+  "as_of_date": "2026-05-18",
+  "company_name": "台灣積體電路製造股份有限公司",
+  "internal_model_snapshot": {
+    "buffett3": {
+      "fair_value": 705.198,
+      "conclusion": "高估",
+      "action": "避開",
+      "comment": "Buffett 3.0 對高成長溢價接受度較低，因此結果通常會比市場定價更保守。"
+    },
+    "imfs": {
+      "fair_value": 2528.6762,
+      "conclusion": "合理偏低估",
+      "action": "偏多",
+      "comment": "IMFS 較能反映高品質成長股的溢價與市場願意給的評價。"
+    },
+    "hybrid": {
+      "fair_value": 2217.01,
+      "conclusion": "合理",
+      "action": "持有",
+      "comment": "較接近市場綜合定價。"
+    },
+    "quant": {
+      "score": 47.0,
+      "conclusion": "中性",
+      "action": "觀察",
+      "comment": "因子分數適合做排序輔助，不適合單獨取代估值結論。"
+    }
+  },
+  "independent_ai_snapshot": {
+    "fair_value_range": "1615.74-2394.0",
+    "base_fair_value": 1957.77,
+    "conclusion": "高估",
+    "action": "持有",
+    "confidence": "中高"
+  },
+  "news_snapshot": {
+    "summary": "近期新聞主軸集中在：需求動能、獲利與營收。",
+    "sentiment": "偏多",
+    "comment": "近期新聞整體偏多，但也代表部分樂觀預期可能已反映在價格中。"
+  },
+  "public_vs_institution_snapshot": {
+    "public_view": "偏正向，容易接受台積電作為高品質長線持股。",
+    "institution_view": "偏多，但更重視目標價與獲利能否持續驗證。",
+    "divergence": "法人觀點比公眾更樂觀。"
+  },
+  "model_difference_explanation": "Buffett 3.0 對高成長溢價接受度低，因此估值顯著偏低；IMFS 與獨立 AI 估值較能反映市場對 AI 與產業地位給予的溢價；Hybrid 則落在中間區間。",
+  "final_conclusion": {
+    "valuation_label": "高估",
+    "action_label": "持有",
+    "summary": "台灣積體電路製造股份有限公司 是高品質公司，但以目前股價 2270.0 元對照獨立 AI 基準合理價 1957.8 元來看，較適合持有，不宜追價。"
+  },
+  "risk_summary": [
+    "AI 題材降溫導致估值修正",
+    "資本支出壓力高於預期",
+    "地緣政治與供應鏈風險"
+  ],
+  "change_view_conditions": [
+    "若股價顯著低於合理區下緣，可轉為偏多。",
+    "若 AI 需求與獲利展望再明顯上修，合理價可上調。",
+    "若需求與毛利率轉弱，應下修評價。"
+  ],
+  "generated_at": "2026-05-17T17:26:57+00:00"
+}

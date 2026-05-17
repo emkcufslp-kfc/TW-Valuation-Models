@@ -1,0 +1,19 @@
+{
+  "ticker": "6257",
+  "longName": "Sigurd Microelectronics Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 478781325,
+  "marketCap": 100783464448,
+  "priceToBook": 4.6260686,
+  "dividendYield": 2.05,
+  "trailingPE": 34.62171,
+  "trailingEps": 6.08,
+  "currentPrice": 210.5,
+  "regularMarketPrice": 210.5,
+  "previousClose": 212.0,
+  "currentRatio": 2.137,
+  "debtToEquity": 54.84,
+  "currency": "TWD",
+  "source": "yfinance"
+}

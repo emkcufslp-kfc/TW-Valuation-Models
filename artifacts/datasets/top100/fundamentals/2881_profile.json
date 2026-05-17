@@ -1,0 +1,19 @@
+{
+  "ticker": "2881",
+  "longName": "Fubon Financial Holding Co., Ltd.",
+  "sector": "Financial Services",
+  "industry": "Insurance - Life",
+  "sharesOutstanding": 13665721905,
+  "marketCap": 1292777291776,
+  "priceToBook": 1.3709152,
+  "dividendYield": 4.38,
+  "trailingPE": 11.30227,
+  "trailingEps": 8.37,
+  "currentPrice": 94.6,
+  "regularMarketPrice": 94.6,
+  "previousClose": 94.7,
+  "currentRatio": 2.555,
+  "debtToEquity": 75.827,
+  "currency": "TWD",
+  "source": "yfinance"
+}

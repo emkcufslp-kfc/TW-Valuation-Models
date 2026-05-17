@@ -1,0 +1,19 @@
+{
+  "ticker": "2408",
+  "longName": "Nanya Technology Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 3098627900,
+  "marketCap": 1056632078336,
+  "priceToBook": 5.758384,
+  "dividendYield": null,
+  "trailingPE": 163.1579,
+  "trailingEps": 2.09,
+  "currentPrice": 341.0,
+  "regularMarketPrice": 341.0,
+  "previousClose": 321.0,
+  "currentRatio": 5.618,
+  "debtToEquity": 11.506,
+  "currency": "TWD",
+  "source": "yfinance"
+}

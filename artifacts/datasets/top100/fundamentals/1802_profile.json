@@ -1,0 +1,19 @@
+{
+  "ticker": "1802",
+  "longName": "Taiwan Glass Ind. Corp.",
+  "sector": "Basic Materials",
+  "industry": "Building Materials",
+  "sharesOutstanding": 2908061000,
+  "marketCap": 194549284864,
+  "priceToBook": 4.0872436,
+  "dividendYield": null,
+  "trailingPE": null,
+  "trailingEps": -0.2,
+  "currentPrice": 66.9,
+  "regularMarketPrice": 66.9,
+  "previousClose": 68.0,
+  "currentRatio": 1.284,
+  "debtToEquity": 50.811,
+  "currency": "TWD",
+  "source": "yfinance"
+}

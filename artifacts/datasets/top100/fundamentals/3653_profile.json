@@ -1,0 +1,19 @@
+{
+  "ticker": "3653",
+  "longName": "Jentech Precision Industrial Co., Ltd",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 146732803,
+  "marketCap": 493755858944,
+  "priceToBook": 21.346106,
+  "dividendYield": 0.41,
+  "trailingPE": 93.446266,
+  "trailingEps": 36.01,
+  "currentPrice": 3365.0,
+  "regularMarketPrice": 3365.0,
+  "previousClose": 3530.0,
+  "currentRatio": 2.418,
+  "debtToEquity": 0.399,
+  "currency": "TWD",
+  "source": "yfinance"
+}

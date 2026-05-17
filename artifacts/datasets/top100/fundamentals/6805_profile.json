@@ -1,0 +1,19 @@
+{
+  "ticker": "6805",
+  "longName": "Fositek Corp.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 68554000,
+  "marketCap": 122026123264,
+  "priceToBook": 16.91983,
+  "dividendYield": 0.44,
+  "trailingPE": 57.549305,
+  "trailingEps": 30.93,
+  "currentPrice": 1780.0,
+  "regularMarketPrice": 1780.0,
+  "previousClose": 1830.0,
+  "currentRatio": 1.839,
+  "debtToEquity": 7.766,
+  "currency": "TWD",
+  "source": "yfinance"
+}

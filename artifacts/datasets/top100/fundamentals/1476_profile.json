@@ -1,0 +1,19 @@
+{
+  "ticker": "1476",
+  "longName": "Eclat Textile Co., Ltd.",
+  "sector": "Consumer Cyclical",
+  "industry": "Apparel Manufacturing",
+  "sharesOutstanding": 274367100,
+  "marketCap": 93696368640,
+  "priceToBook": 3.1614516,
+  "dividendYield": 4.87,
+  "trailingPE": 16.99005,
+  "trailingEps": 20.1,
+  "currentPrice": 341.5,
+  "regularMarketPrice": 341.5,
+  "previousClose": 349.0,
+  "currentRatio": 2.523,
+  "debtToEquity": 1.286,
+  "currency": "TWD",
+  "source": "yfinance"
+}

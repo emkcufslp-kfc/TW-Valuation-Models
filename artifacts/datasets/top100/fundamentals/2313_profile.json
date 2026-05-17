@@ -1,0 +1,19 @@
+{
+  "ticker": "2313",
+  "longName": "Compeq Manufacturing Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 1191820600,
+  "marketCap": 292591927296,
+  "priceToBook": 7.881473,
+  "dividendYield": 1.18,
+  "trailingPE": 44.636364,
+  "trailingEps": 5.5,
+  "currentPrice": 245.5,
+  "regularMarketPrice": 245.5,
+  "previousClose": 237.0,
+  "currentRatio": 1.566,
+  "debtToEquity": 22.738,
+  "currency": "TWD",
+  "source": "yfinance"
+}

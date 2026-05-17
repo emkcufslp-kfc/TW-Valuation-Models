@@ -1,0 +1,19 @@
+{
+  "ticker": "3481",
+  "longName": "Innolux Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 7981052800,
+  "marketCap": 282529300480,
+  "priceToBook": 1.2771946,
+  "dividendYield": 2.67,
+  "trailingPE": 1180.0001,
+  "trailingEps": 0.03,
+  "currentPrice": 35.4,
+  "regularMarketPrice": 35.4,
+  "previousClose": 37.5,
+  "currentRatio": null,
+  "debtToEquity": 24.687,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "2303",
+  "longName": "United Microelectronics Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 12561773619,
+  "marketCap": 1356671483904,
+  "priceToBook": 3.340344,
+  "dividendYield": 2.9,
+  "trailingPE": 27.411167,
+  "trailingEps": 3.94,
+  "currentPrice": 108.0,
+  "regularMarketPrice": 108.0,
+  "previousClose": 98.4,
+  "currentRatio": 2.719,
+  "debtToEquity": 18.694,
+  "currency": "TWD",
+  "source": "yfinance"
+}

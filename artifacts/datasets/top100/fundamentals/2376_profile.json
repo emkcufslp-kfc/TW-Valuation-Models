@@ -1,0 +1,19 @@
+{
+  "ticker": "2376",
+  "longName": "Giga-Byte Technology Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 669888886,
+  "marketCap": 219053670400,
+  "priceToBook": 3.7064745,
+  "dividendYield": 3.19,
+  "trailingPE": 19.03376,
+  "trailingEps": 17.18,
+  "currentPrice": 327.0,
+  "regularMarketPrice": 327.0,
+  "previousClose": 313.5,
+  "currentRatio": 1.708,
+  "debtToEquity": 71.426,
+  "currency": "TWD",
+  "source": "yfinance"
+}

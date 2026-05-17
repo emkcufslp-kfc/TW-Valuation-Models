@@ -1,0 +1,19 @@
+{
+  "ticker": "2887",
+  "longName": "TS Financial Holding Co., Ltd.",
+  "sector": "Financial Services",
+  "industry": "Banks - Regional",
+  "sharesOutstanding": 24866276712,
+  "marketCap": 574411046912,
+  "priceToBook": 1.222934,
+  "dividendYield": 3.89,
+  "trailingPE": 12.094241,
+  "trailingEps": 1.91,
+  "currentPrice": 23.1,
+  "regularMarketPrice": 23.1,
+  "previousClose": 23.15,
+  "currentRatio": null,
+  "debtToEquity": null,
+  "currency": "TWD",
+  "source": "yfinance"
+}

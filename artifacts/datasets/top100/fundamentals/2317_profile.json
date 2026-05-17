@@ -1,0 +1,19 @@
+{
+  "ticker": "2317",
+  "longName": "Hon Hai Precision Industry Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 13962738922,
+  "marketCap": 3413889515520,
+  "priceToBook": 1.9257427,
+  "dividendYield": 2.31,
+  "trailingPE": 18.24627,
+  "trailingEps": 13.4,
+  "currentPrice": 244.5,
+  "regularMarketPrice": 244.5,
+  "previousClose": 251.0,
+  "currentRatio": 1.461,
+  "debtToEquity": 65.296,
+  "currency": "TWD",
+  "source": "yfinance"
+}

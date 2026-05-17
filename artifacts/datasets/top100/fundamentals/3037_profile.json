@@ -1,0 +1,19 @@
+{
+  "ticker": "3037",
+  "longName": "Unimicron Technology Corp.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 1574519262,
+  "marketCap": 1387151491072,
+  "priceToBook": 12.341528,
+  "dividendYield": 0.17,
+  "trailingPE": 201.60184,
+  "trailingEps": 4.37,
+  "currentPrice": 881.0,
+  "regularMarketPrice": 881.0,
+  "previousClose": 892.0,
+  "currentRatio": 1.324,
+  "debtToEquity": 49.685,
+  "currency": "TWD",
+  "source": "yfinance"
+}

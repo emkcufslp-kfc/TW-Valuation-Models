@@ -1,0 +1,19 @@
+{
+  "ticker": "2492",
+  "longName": "Walsin Technology Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 484804774,
+  "marketCap": 106657046528,
+  "priceToBook": 2.0496194,
+  "dividendYield": 1.64,
+  "trailingPE": 46.413506,
+  "trailingEps": 4.74,
+  "currentPrice": 220.0,
+  "regularMarketPrice": 220.0,
+  "previousClose": 200.0,
+  "currentRatio": 1.501,
+  "debtToEquity": 48.082,
+  "currency": "TWD",
+  "source": "yfinance"
+}

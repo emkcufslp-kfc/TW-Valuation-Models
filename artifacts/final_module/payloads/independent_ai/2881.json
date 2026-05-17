@@ -1,0 +1,27 @@
+{
+  "ticker": "2881",
+  "as_of_date": "2026-05-17",
+  "industry_bucket": "金融股",
+  "valuation_method_primary": "ROE / PB 估值法",
+  "valuation_method_secondary": "股利折現法",
+  "fair_value_low": 86.42,
+  "fair_value_base": 92.14,
+  "fair_value_high": 98.15,
+  "valuation_conclusion": "fair",
+  "action_stance": "hold",
+  "confidence": "medium_high",
+  "reasoning_summary": "富邦金具金控龍頭規模、穩定配息能力與中等偏上的 ROE，但目前市場價格已接近合理區間，並非明顯低估。",
+  "calculation_logic_summary": "以正常化 ROE 對應合理 PB 區間估算核心價值，再以現金股利能力做交叉驗證。對金融股而言，淨值、ROE 與配息穩定性比高成長敘事更重要。",
+  "key_assumptions": [
+    "正常化 ROE 維持在 11% 到 13% 區間",
+    "市場給予的合理 PB 不會長期脫離 1.2 到 1.4 倍太多",
+    "現金股利能力維持在每股 4 元以上附近"
+  ],
+  "key_risks": [
+    "壽險與資本市場波動影響淨值",
+    "利率與匯率變動影響獲利品質",
+    "若配息不如預期，市場評價可能下修"
+  ],
+  "market_context_used": true,
+  "generated_at": "2026-05-17T09:40:56+00:00"
+}

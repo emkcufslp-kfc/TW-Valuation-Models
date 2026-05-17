@@ -1,0 +1,19 @@
+{
+  "ticker": "1326",
+  "longName": "Formosa Chemicals & Fibre Corporation",
+  "sector": "Basic Materials",
+  "industry": "Chemicals",
+  "sharesOutstanding": 5849016390,
+  "marketCap": 262913294336,
+  "priceToBook": 0.7036521,
+  "dividendYield": 1.08,
+  "trailingPE": null,
+  "trailingEps": -0.99,
+  "currentPrice": 44.95,
+  "regularMarketPrice": 44.95,
+  "previousClose": 46.1,
+  "currentRatio": 1.884,
+  "debtToEquity": 32.777,
+  "currency": "TWD",
+  "source": "yfinance"
+}

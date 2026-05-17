@@ -1,0 +1,65 @@
+{
+  "ticker": "3037",
+  "as_of_date": "2026-05-17",
+  "company_name": "欣興電子股份有限公司",
+  "internal_model_snapshot": {
+    "buffett3": {
+      "fair_value": 53.5286,
+      "conclusion": "高估",
+      "action": "避開",
+      "comment": "Buffett 3.0 對防禦型收益資產偏重安全邊際，因此估值通常比市場價格更嚴格。"
+    },
+    "imfs": {
+      "fair_value": 43.6556,
+      "conclusion": "高估",
+      "action": "保守",
+      "comment": "IMFS 對低成長收益型公司通常較保守。"
+    },
+    "hybrid": {
+      "fair_value": null,
+      "conclusion": "無資料",
+      "action": "觀察",
+      "comment": "當前無可用輸出。"
+    },
+    "quant": {
+      "score": 47.0,
+      "conclusion": "中性",
+      "action": "觀察",
+      "comment": "因子分數適合做排序輔助，不適合單獨取代估值結論。"
+    }
+  },
+  "independent_ai_snapshot": {
+    "fair_value_range": "24.45-42.21",
+    "base_fair_value": 36.27,
+    "conclusion": "高估",
+    "action": "減碼",
+    "confidence": "中高"
+  },
+  "news_snapshot": {
+    "summary": "近期新聞樣本有限。",
+    "sentiment": "中性",
+    "comment": "目前缺少即時新聞摘要時，仍應優先關注成長動能、估值與產業地位。"
+  },
+  "public_vs_institution_snapshot": {
+    "public_view": "偏穩健正向，重視存股與配息。",
+    "institution_view": "偏中性，對防禦型標的的評價多以收益穩定性為主。",
+    "divergence": "法人與公眾方向大致一致。"
+  },
+  "model_difference_explanation": "Buffett 3.0 與 IMFS 對中華電信偏保守，因為這類公司成長性有限；Hybrid 與獨立 AI 較能反映防禦型資產在市場中的合理溢價。",
+  "final_conclusion": {
+    "valuation_label": "高估",
+    "action_label": "減碼",
+    "summary": "欣興電子股份有限公司 目前股價 881.0 元相對獨立 AI 基準合理價 36.3 元，較適合採取 減碼 策略，避免在缺乏安全邊際時追價。"
+  },
+  "risk_summary": [
+    "成長放緩",
+    "估值修正",
+    "產業競爭升高"
+  ],
+  "change_view_conditions": [
+    "若股價回落且殖利率提升，可轉為偏多。",
+    "若獲利能見度或成長路徑優於預期，可小幅上修合理價。",
+    "若基本面轉弱或估值壓力明顯升高，應下修評價。"
+  ],
+  "generated_at": "2026-05-17T09:26:45+00:00"
+}

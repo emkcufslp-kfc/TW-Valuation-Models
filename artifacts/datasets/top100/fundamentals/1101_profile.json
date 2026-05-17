@@ -1,0 +1,19 @@
+{
+  "ticker": "1101",
+  "longName": "TCC Group Holdings Co., Ltd.",
+  "sector": "Basic Materials",
+  "industry": "Building Materials",
+  "sharesOutstanding": 7693181742,
+  "marketCap": 188867608576,
+  "priceToBook": 0.8001173,
+  "dividendYield": 4.05,
+  "trailingPE": null,
+  "trailingEps": -1.6,
+  "currentPrice": 24.55,
+  "regularMarketPrice": 24.55,
+  "previousClose": 24.7,
+  "currentRatio": 2.073,
+  "debtToEquity": 67.056,
+  "currency": "TWD",
+  "source": "yfinance"
+}

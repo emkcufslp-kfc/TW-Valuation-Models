@@ -1,0 +1,27 @@
+{
+  "ticker": "2330",
+  "as_of_date": "2026-05-18",
+  "industry_bucket": "半導體成長股",
+  "valuation_method_primary": "成長型本益比法",
+  "valuation_method_secondary": "自由現金流交叉驗證法",
+  "fair_value_low": 1615.74,
+  "fair_value_base": 1957.77,
+  "fair_value_high": 2394.0,
+  "valuation_conclusion": "overvalued",
+  "action_stance": "hold",
+  "confidence": "medium_high",
+  "reasoning_summary": "台積電屬於高品質、高成長且具技術護城河的核心資產，但目前市場價格已反映大量 AI 成長預期，因此不屬於明顯低估。",
+  "calculation_logic_summary": "以正常化 EPS 對應高品質半導體龍頭的合理本益比區間估算核心價值，再用每股自由現金流對照結果做保守交叉驗證。這個方法承認成長溢價，但不直接沿用既有模型的內在價值輸出。",
+  "key_assumptions": [
+    "AI 需求與先進製程動能仍延續",
+    "高品質龍頭可維持高於市場平均的合理本益比",
+    "自由現金流與獲利品質未出現結構性惡化"
+  ],
+  "key_risks": [
+    "AI 題材降溫導致估值修正",
+    "資本支出壓力高於預期",
+    "地緣政治與供應鏈風險"
+  ],
+  "market_context_used": true,
+  "generated_at": "2026-05-17T17:26:57+00:00"
+}

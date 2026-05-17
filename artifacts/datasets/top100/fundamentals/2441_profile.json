@@ -1,0 +1,19 @@
+{
+  "ticker": "2441",
+  "longName": "Greatek Electronics Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductor Equipment & Materials",
+  "sharesOutstanding": 568846000,
+  "marketCap": 57453449216,
+  "priceToBook": 3.193676,
+  "dividendYield": 3.08,
+  "trailingPE": 23.653397,
+  "trailingEps": 4.27,
+  "currentPrice": 101.0,
+  "regularMarketPrice": 101.0,
+  "previousClose": 97.3,
+  "currentRatio": 3.252,
+  "debtToEquity": 0.1,
+  "currency": "TWD",
+  "source": "yfinance"
+}

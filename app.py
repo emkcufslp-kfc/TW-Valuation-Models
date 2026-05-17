@@ -34,6 +34,7 @@ from tw_valuation_models.reporting import (
     build_model_ranking_comparison,
     summarize_manifest_for_ticker,
 )
+from tw_valuation_models.shared_data import normalize_shared_data
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent
@@ -1101,9 +1102,6 @@ def init_state() -> None:
         st.session_state.previous_page_mode = st.session_state.page_mode
 
 
-DEMO_TICKERS = ["2330", "2881", "2603", "2412"]
-
-
 def normalized_shared_data_available() -> bool:
     normalized_root = PATHS.normalized_root
     required = [
@@ -1114,14 +1112,14 @@ def normalized_shared_data_available() -> bool:
     return all(path.exists() for path in required)
 
 
-def bootstrap_public_demo_results() -> None:
-    for ticker in DEMO_TICKERS:
-        try:
-            build_single_ticker_model_result(PATHS, ticker)
-            refresh_live_final_module_context(PATHS, [ticker])
-        except Exception:
-            continue
-    build_final_module_payloads(PATHS, tickers=DEMO_TICKERS)
+def shared_data_seed_available() -> bool:
+    fundamentals_root = PATHS.shared_data_root / "fundamentals"
+    required = [
+        fundamentals_root / "company_info.csv",
+        fundamentals_root / "valuation.csv",
+        fundamentals_root / "yfinance_fundamentals.csv",
+    ]
+    return all(path.exists() for path in required)
 
 
 def ensure_outputs() -> None:
@@ -1130,14 +1128,19 @@ def ensure_outputs() -> None:
     if has_top100_dataset and has_results:
         return
 
-    if normalized_shared_data_available():
-        if not has_top100_dataset:
-            build_top100_dataset(PATHS)
-        if not has_results:
-            build_all_model_results(PATHS)
-        return
+    if not normalized_shared_data_available():
+        if shared_data_seed_available():
+            normalize_shared_data(PATHS)
+        else:
+            raise FileNotFoundError(
+                "Full deployment requires either prebuilt top100 artifacts or shared-data seed tables "
+                "(company_info.csv, valuation.csv, yfinance_fundamentals.csv)."
+            )
 
-    bootstrap_public_demo_results()
+    if not has_top100_dataset:
+        build_top100_dataset(PATHS)
+    if not has_results:
+        build_all_model_results(PATHS)
 
 
 def should_refresh_final_ai(page_mode: object, previous_page_mode: object) -> bool:
@@ -2819,7 +2822,7 @@ with st.sidebar:
     st.session_state.selected_ticker = ticker_selected
     if demo_unavailable_models:
         st.warning(
-            "公開 demo 模式：目前缺少外部模型來源，以下模型暫時不可用："
+            "目前有部分外部模型未成功載入，以下模型暫時不可用："
             + "、".join(demo_unavailable_models)
         )
     selected_row = results_df[results_df["ticker"] == ticker_selected].iloc[0]

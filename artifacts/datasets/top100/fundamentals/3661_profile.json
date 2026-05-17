@@ -1,0 +1,19 @@
+{
+  "ticker": "3661",
+  "longName": "Alchip Technologies, Limited",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 82092712,
+  "marketCap": 396507807744,
+  "priceToBook": 9.125915,
+  "dividendYield": 0.77,
+  "trailingPE": 71.66172,
+  "trailingEps": 67.4,
+  "currentPrice": 4830.0,
+  "regularMarketPrice": 4830.0,
+  "previousClose": 4780.0,
+  "currentRatio": 3.448,
+  "debtToEquity": 0.757,
+  "currency": "TWD",
+  "source": "yfinance"
+}

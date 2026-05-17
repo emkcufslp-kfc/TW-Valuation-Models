@@ -1,0 +1,19 @@
+{
+  "ticker": "2345",
+  "longName": "Accton Technology Corporation",
+  "sector": "Technology",
+  "industry": "Communication Equipment",
+  "sharesOutstanding": 558908000,
+  "marketCap": 1495078928384,
+  "priceToBook": 22.88966,
+  "dividendYield": 0.45,
+  "trailingPE": 57.21925,
+  "trailingEps": 46.75,
+  "currentPrice": 2675.0,
+  "regularMarketPrice": 2675.0,
+  "previousClose": 2435.0,
+  "currentRatio": 1.539,
+  "debtToEquity": 10.343,
+  "currency": "TWD",
+  "source": "yfinance"
+}

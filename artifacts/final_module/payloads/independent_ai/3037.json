@@ -1,0 +1,27 @@
+{
+  "ticker": "3037",
+  "as_of_date": "2026-05-17",
+  "industry_bucket": "高品質成長股",
+  "valuation_method_primary": "成長型本益比法",
+  "valuation_method_secondary": "自由現金流交叉驗證法",
+  "fair_value_low": 24.45,
+  "fair_value_base": 36.27,
+  "fair_value_high": 42.21,
+  "valuation_conclusion": "overvalued",
+  "action_stance": "reduce",
+  "confidence": "medium_high",
+  "reasoning_summary": "此標的較適合用成長與現金流並重的方式判斷合理價值。",
+  "calculation_logic_summary": "以正常化 EPS 對應合理本益比區間估算，再用自由現金流能力做保守交叉驗證。",
+  "key_assumptions": [
+    "獲利維持成長",
+    "現金流品質穩健",
+    "估值倍數未大幅收縮"
+  ],
+  "key_risks": [
+    "成長放緩",
+    "估值修正",
+    "產業競爭升高"
+  ],
+  "market_context_used": false,
+  "generated_at": "2026-05-17T09:26:45+00:00"
+}

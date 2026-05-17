@@ -1,0 +1,19 @@
+{
+  "ticker": "3008",
+  "longName": "Largan Precision Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 130798197,
+  "marketCap": 410052362240,
+  "priceToBook": 2.2670753,
+  "dividendYield": 2.81,
+  "trailingPE": 19.927536,
+  "trailingEps": 157.32,
+  "currentPrice": 3135.0,
+  "regularMarketPrice": 3135.0,
+  "previousClose": 2850.0,
+  "currentRatio": 4.024,
+  "debtToEquity": 0.084,
+  "currency": "TWD",
+  "source": "yfinance"
+}

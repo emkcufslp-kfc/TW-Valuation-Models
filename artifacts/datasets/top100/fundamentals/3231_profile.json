@@ -1,0 +1,19 @@
+{
+  "ticker": "3231",
+  "longName": "Wistron Corporation",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 3180412000,
+  "marketCap": 438896852992,
+  "priceToBook": 2.329389,
+  "dividendYield": 2.7,
+  "trailingPE": 16.428572,
+  "trailingEps": 8.4,
+  "currentPrice": 138.0,
+  "regularMarketPrice": 138.0,
+  "previousClose": 140.5,
+  "currentRatio": 1.2,
+  "debtToEquity": 166.059,
+  "currency": "TWD",
+  "source": "yfinance"
+}

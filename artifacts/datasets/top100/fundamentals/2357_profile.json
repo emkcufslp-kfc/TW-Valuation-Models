@@ -1,0 +1,19 @@
+{
+  "ticker": "2357",
+  "longName": "ASUSTeK Computer Inc.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 742760280,
+  "marketCap": 504334221312,
+  "priceToBook": 1.757938,
+  "dividendYield": 5.13,
+  "trailingPE": 11.404098,
+  "trailingEps": 59.54,
+  "currentPrice": 679.0,
+  "regularMarketPrice": 679.0,
+  "previousClose": 663.0,
+  "currentRatio": 1.483,
+  "debtToEquity": 13.693,
+  "currency": "TWD",
+  "source": "yfinance"
+}

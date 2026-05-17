@@ -1,0 +1,19 @@
+{
+  "ticker": "3189",
+  "longName": "Kinsus Interconnect Technology Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductor Equipment & Materials",
+  "sharesOutstanding": 526916000,
+  "marketCap": 275050168320,
+  "priceToBook": 6.6438417,
+  "dividendYield": 0.19,
+  "trailingPE": 154.43787,
+  "trailingEps": 3.38,
+  "currentPrice": 522.0,
+  "regularMarketPrice": 522.0,
+  "previousClose": 497.5,
+  "currentRatio": 1.875,
+  "debtToEquity": 24.011,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,206 @@
+{
+  "ticker": "2408",
+  "company_name": "南亞科技股份有限公司",
+  "valuation_date": "2026-05-17T08:22:22+00:00",
+  "classification": "cyclical",
+  "company_type": "cyclical",
+  "classification_reason": "ticker_matches_cyclical_override",
+  "classification_confidence": "high",
+  "input_snapshot": {
+    "industry": "其他電子業",
+    "current_price": 341.0,
+    "valuation_row_count": 1,
+    "dividend_row_count": 1,
+    "monthly_revenue_row_count": 1,
+    "annual_row_count": 4,
+    "quarterly_row_count": 1
+  },
+  "normalized_inputs": {
+    "normalized_eps": -0.6358114262880378,
+    "normalized_fcf_per_share": -3.1330876749469603,
+    "normalized_bvps": 54.99203437753852,
+    "normalized_roe": -1.2184645380685868,
+    "normalized_dividend_capacity_per_share": 1.5,
+    "latest_price": 341.0,
+    "latest_pe_snapshot": 27.89,
+    "latest_pb_snapshot": 5.0,
+    "latest_dividend_yield_snapshot": 0.48,
+    "latest_current_ratio": 5.617744939890258,
+    "latest_debt_to_equity": 0.2482972240856201,
+    "source_field_coverage": {
+      "annual_total_debt_non_null_rows": 0,
+      "annual_cash_and_equivalents_non_null_rows": 0,
+      "annual_operating_income_non_null_rows": 4,
+      "quarterly_total_debt_non_null_rows": 0,
+      "quarterly_cash_and_equivalents_non_null_rows": 0,
+      "quarterly_operating_income_non_null_rows": 1
+    },
+    "cyclical_ev_ebitda_blockers": [
+      "total_debt_missing_in_source_tables",
+      "cash_and_equivalents_missing_in_source_tables",
+      "clean_ebitda_series_not_available_in_current_dataset"
+    ],
+    "trend_flags": [
+      "negative_average_fcf"
+    ],
+    "data_quality_flags": [],
+    "manual_review_flags": [
+      "cyclical_ev_ebitda_not_ready_without_clean_ebitda"
+    ]
+  },
+  "valuation_legs": [
+    {
+      "name": "mid_cycle_eps",
+      "weight": 0.3,
+      "status": "ready",
+      "inputs": {
+        "normalized_eps": -0.6358114262880378,
+        "normalized_fcf_per_share": -3.1330876749469603,
+        "normalized_bvps": 54.99203437753852,
+        "normalized_roe": -1.2184645380685868,
+        "normalized_dividend_capacity_per_share": 1.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": 0.0,
+      "base_value": 0.0,
+      "bull_value": 0.0,
+      "blended_value": 0.0,
+      "notes": [
+        "negative_equity_leg_value_floored_to_zero"
+      ]
+    },
+    {
+      "name": "normalized_ev_ebitda",
+      "weight": 0.3,
+      "status": "not_ready",
+      "inputs": {
+        "normalized_eps": -0.6358114262880378,
+        "normalized_fcf_per_share": -3.1330876749469603,
+        "normalized_bvps": 54.99203437753852,
+        "normalized_roe": -1.2184645380685868,
+        "normalized_dividend_capacity_per_share": 1.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": null,
+      "base_value": null,
+      "bull_value": null,
+      "blended_value": null,
+      "notes": [
+        "leg_has_missing_required_inputs",
+        "v1_keeps_ev_ebitda_visible_but_uncomputed",
+        "total_debt_missing_in_source_tables",
+        "cash_and_equivalents_missing_in_source_tables",
+        "clean_ebitda_series_not_available_in_current_dataset"
+      ]
+    },
+    {
+      "name": "replacement_asset_value",
+      "weight": 0.2,
+      "status": "ready",
+      "inputs": {
+        "normalized_eps": -0.6358114262880378,
+        "normalized_fcf_per_share": -3.1330876749469603,
+        "normalized_bvps": 54.99203437753852,
+        "normalized_roe": -1.2184645380685868,
+        "normalized_dividend_capacity_per_share": 1.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": 49.492830939784675,
+      "base_value": 54.99203437753852,
+      "bull_value": 60.49123781529238,
+      "blended_value": 53.617233518100065,
+      "notes": []
+    },
+    {
+      "name": "trough_pb_downside",
+      "weight": 0.2,
+      "status": "ready",
+      "inputs": {
+        "normalized_eps": -0.6358114262880378,
+        "normalized_fcf_per_share": -3.1330876749469603,
+        "normalized_bvps": 54.99203437753852,
+        "normalized_roe": -1.2184645380685868,
+        "normalized_dividend_capacity_per_share": 1.5,
+        "source_field_coverage": {
+          "annual_total_debt_non_null_rows": 0,
+          "annual_cash_and_equivalents_non_null_rows": 0,
+          "annual_operating_income_non_null_rows": 4,
+          "quarterly_total_debt_non_null_rows": 0,
+          "quarterly_cash_and_equivalents_non_null_rows": 0,
+          "quarterly_operating_income_non_null_rows": 1
+        }
+      },
+      "conservative_value": 38.49442406427696,
+      "base_value": 46.74322922090774,
+      "bull_value": 52.24243265866159,
+      "blended_value": 44.26858767391851,
+      "notes": []
+    }
+  ],
+  "scenario_weights": {
+    "conservative": 0.4,
+    "base": 0.45,
+    "bull": 0.15
+  },
+  "blended_normalized_valuation": 27.9674,
+  "blended_fair_value": 27.9674,
+  "modifiers": {
+    "macro_regime_modifier": {
+      "raw_score": 2,
+      "selected_bucket": "supportive",
+      "modifier_value": 1.03,
+      "reason": "latest_above_50d_and_200d_trend",
+      "data_source": "dataset.TAIEX"
+    },
+    "taiwan_risk_modifier": {
+      "raw_score": -1,
+      "selected_bucket": "default_country_risk_haircut",
+      "modifier_value": 0.92,
+      "reason": "v1_uses_conservative_taiwan_risk_discount",
+      "data_source": "static_v1_config"
+    },
+    "reality_validation_modifier": {
+      "raw_score": 2,
+      "selected_bucket": "supported",
+      "modifier_value": 1.03,
+      "reason": "latest_quarter_eps_positive,monthly_revenue_yoy_supportive",
+      "data_source": "buffett3_tables"
+    }
+  },
+  "final_fair_value_per_share": 27.2969,
+  "final_fair_value": 27.2969,
+  "current_price": 341.0,
+  "upside_downside_pct": -91.995,
+  "rating": "非常昂貴",
+  "data_quality_flags": [],
+  "manual_review_flags": [
+    "cyclical_ev_ebitda_not_ready_without_clean_ebitda",
+    "cyclical_model_uses_partial_leg_set"
+  ],
+  "formula_version": "buffett3_v1",
+  "signal": "避開",
+  "warnings": [
+    "valuation_weights_reallocated_over_ready_legs"
+  ]
+}

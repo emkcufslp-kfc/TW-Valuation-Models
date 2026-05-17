@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-05-17T08:23:02+00:00",
+  "result_count": 100,
+  "results_path": "D:\\Codex projects\\TW Valuation models\\artifacts\\results\\top100_model_results.csv",
+  "model_logic_sources": {
+    "buffett_v1": "formula_port_from_original_buffett_stock_tw_src_dcf_engine_and_useDCF",
+    "buffett_v2": "formula_port_from_original_buffett_stock_tw_src_dcf_engine_and_useDCF",
+    "buffett3": "workspace_buffett3_v1_rule_based_engine_using_buffett3_official_tables",
+    "imfs": "direct_original_imfs_route_classifier_and_valuation_engine",
+    "tw_buffett_quant": "direct_original_strict_mode_engine_with_integrated_inputs",
+    "tw_hybrid": "direct_original_strategy_compute_technical_features_and_EnsembleValuationModel"
+  }
+}

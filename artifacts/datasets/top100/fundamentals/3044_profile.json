@@ -1,0 +1,19 @@
+{
+  "ticker": "3044",
+  "longName": "Tripod Technology Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 525606000,
+  "marketCap": 269110280192,
+  "priceToBook": 5.1746964,
+  "dividendYield": 1.95,
+  "trailingPE": 26.44628,
+  "trailingEps": 19.36,
+  "currentPrice": 512.0,
+  "regularMarketPrice": 512.0,
+  "previousClose": 529.0,
+  "currentRatio": 1.854,
+  "debtToEquity": 9.644,
+  "currency": "TWD",
+  "source": "yfinance"
+}

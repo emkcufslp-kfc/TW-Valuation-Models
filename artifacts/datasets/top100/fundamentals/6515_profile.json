@@ -1,0 +1,19 @@
+{
+  "ticker": "6515",
+  "longName": "WinWay Technology Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 36038042,
+  "marketCap": 379840954368,
+  "priceToBook": 58.939316,
+  "dividendYield": 0.25,
+  "trailingPE": 227.10623,
+  "trailingEps": 46.41,
+  "currentPrice": 10540.0,
+  "regularMarketPrice": 10540.0,
+  "previousClose": 9875.0,
+  "currentRatio": 2.546,
+  "debtToEquity": 1.29,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "5269",
+  "longName": "ASMedia Technology Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 74157000,
+  "marketCap": 108640002048,
+  "priceToBook": 3.030999,
+  "dividendYield": 2.1,
+  "trailingPE": 20.245993,
+  "trailingEps": 72.36,
+  "currentPrice": 1465.0,
+  "regularMarketPrice": 1465.0,
+  "previousClose": 1430.0,
+  "currentRatio": 2.652,
+  "debtToEquity": 0.189,
+  "currency": "TWD",
+  "source": "yfinance"
+}

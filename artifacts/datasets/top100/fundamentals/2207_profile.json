@@ -1,0 +1,19 @@
+{
+  "ticker": "2207",
+  "longName": "Hotai Motor Co.,Ltd.",
+  "sector": "Consumer Cyclical",
+  "industry": "Auto & Truck Dealerships",
+  "sharesOutstanding": 557102768,
+  "marketCap": 261002657792,
+  "priceToBook": 3.029343,
+  "dividendYield": 4.22,
+  "trailingPE": 13.820059,
+  "trailingEps": 33.9,
+  "currentPrice": 468.5,
+  "regularMarketPrice": 468.5,
+  "previousClose": 473.5,
+  "currentRatio": 1.042,
+  "debtToEquity": 253.558,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "3036",
+  "longName": "WT Microelectronics Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 1269148301,
+  "marketCap": 344573771776,
+  "priceToBook": 2.953784,
+  "dividendYield": 2.49,
+  "trailingPE": 26.333656,
+  "trailingEps": 10.31,
+  "currentPrice": 271.5,
+  "regularMarketPrice": 271.5,
+  "previousClose": 284.0,
+  "currentRatio": 1.254,
+  "debtToEquity": 60.741,
+  "currency": "TWD",
+  "source": "yfinance"
+}

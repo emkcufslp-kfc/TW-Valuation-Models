@@ -1,0 +1,19 @@
+{
+  "ticker": "2412",
+  "longName": "Chunghwa Telecom Co., Ltd.",
+  "sector": "Communication Services",
+  "industry": "Telecom Services",
+  "sharesOutstanding": 7757446545,
+  "marketCap": 1066648928256,
+  "priceToBook": 2.6914344,
+  "dividendYield": 3.64,
+  "trailingPE": 27.390438,
+  "trailingEps": 5.02,
+  "currentPrice": 137.5,
+  "regularMarketPrice": 137.5,
+  "previousClose": 137.5,
+  "currentRatio": 1.644,
+  "debtToEquity": 9.662,
+  "currency": "TWD",
+  "source": "yfinance"
+}

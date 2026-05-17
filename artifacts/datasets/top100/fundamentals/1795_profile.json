@@ -1,0 +1,19 @@
+{
+  "ticker": "1795",
+  "longName": "Lotus Pharmaceutical Co., Ltd.",
+  "sector": "Healthcare",
+  "industry": "Drug Manufacturers - Specialty & Generic",
+  "sharesOutstanding": 262809812,
+  "marketCap": 52167745536,
+  "priceToBook": 2.1937823,
+  "dividendYield": 2.81,
+  "trailingPE": 11.003325,
+  "trailingEps": 18.04,
+  "currentPrice": 198.5,
+  "regularMarketPrice": 198.5,
+  "previousClose": 205.5,
+  "currentRatio": 1.595,
+  "debtToEquity": 192.242,
+  "currency": "TWD",
+  "source": "yfinance"
+}

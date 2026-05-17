@@ -1,0 +1,19 @@
+{
+  "ticker": "2451",
+  "longName": "Transcend Information, Inc.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 431369675,
+  "marketCap": 148606844928,
+  "priceToBook": 6.445276,
+  "dividendYield": 2.01,
+  "trailingPE": 26.602318,
+  "trailingEps": 12.95,
+  "currentPrice": 344.5,
+  "regularMarketPrice": 344.5,
+  "previousClose": 327.0,
+  "currentRatio": 6.621,
+  "debtToEquity": 0.243,
+  "currency": "TWD",
+  "source": "yfinance"
+}

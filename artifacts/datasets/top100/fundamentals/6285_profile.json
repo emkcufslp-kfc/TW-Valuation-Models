@@ -1,0 +1,19 @@
+{
+  "ticker": "6285",
+  "longName": "WNC Corporation",
+  "sector": "Technology",
+  "industry": "Communication Equipment",
+  "sharesOutstanding": 483663719,
+  "marketCap": 126719893504,
+  "priceToBook": 4.2399626,
+  "dividendYield": 1.77,
+  "trailingPE": 41.719746,
+  "trailingEps": 6.28,
+  "currentPrice": 262.0,
+  "regularMarketPrice": 262.0,
+  "previousClose": 270.5,
+  "currentRatio": 1.439,
+  "debtToEquity": 46.005,
+  "currency": "TWD",
+  "source": "yfinance"
+}

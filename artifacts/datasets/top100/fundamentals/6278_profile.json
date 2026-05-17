@@ -1,0 +1,19 @@
+{
+  "ticker": "6278",
+  "longName": "Taiwan Surface Mounting Technology Corp.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 288985400,
+  "marketCap": 65310703616,
+  "priceToBook": 3.187633,
+  "dividendYield": 2.68,
+  "trailingPE": 24.222937,
+  "trailingEps": 9.33,
+  "currentPrice": 226.0,
+  "regularMarketPrice": 226.0,
+  "previousClose": 205.5,
+  "currentRatio": 1.408,
+  "debtToEquity": 26.904,
+  "currency": "TWD",
+  "source": "yfinance"
+}

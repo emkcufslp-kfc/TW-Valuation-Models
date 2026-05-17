@@ -1,0 +1,19 @@
+{
+  "ticker": "4904",
+  "longName": "Far EasTone Telecommunications Co., Ltd.",
+  "sector": "Communication Services",
+  "industry": "Telecom Services",
+  "sharesOutstanding": 3607705000,
+  "marketCap": 353915863040,
+  "priceToBook": 3.6839535,
+  "dividendYield": 3.67,
+  "trailingPE": 25.81579,
+  "trailingEps": 3.8,
+  "currentPrice": 98.1,
+  "regularMarketPrice": 98.1,
+  "previousClose": 96.9,
+  "currentRatio": 0.928,
+  "debtToEquity": 46.679,
+  "currency": "TWD",
+  "source": "yfinance"
+}

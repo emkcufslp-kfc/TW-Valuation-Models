@@ -1,0 +1,19 @@
+{
+  "ticker": "8996",
+  "longName": "Kaori Heat Treatment Co., Ltd.",
+  "sector": "Industrials",
+  "industry": "Specialty Industrial Machinery",
+  "sharesOutstanding": 92887429,
+  "marketCap": 98925117440,
+  "priceToBook": 23.476248,
+  "dividendYield": 0.44,
+  "trailingPE": 119.394615,
+  "trailingEps": 8.92,
+  "currentPrice": 1065.0,
+  "regularMarketPrice": 1065.0,
+  "previousClose": 1025.0,
+  "currentRatio": 1.561,
+  "debtToEquity": 34.695,
+  "currency": "TWD",
+  "source": "yfinance"
+}

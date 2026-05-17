@@ -1,0 +1,19 @@
+{
+  "ticker": "1560",
+  "longName": "Kinik Company",
+  "sector": "Industrials",
+  "industry": "Tools & Accessories",
+  "sharesOutstanding": 147292000,
+  "marketCap": 95739797504,
+  "priceToBook": 11.754919,
+  "dividendYield": 0.6,
+  "trailingPE": 71.271935,
+  "trailingEps": 9.12,
+  "currentPrice": 650.0,
+  "regularMarketPrice": 650.0,
+  "previousClose": 633.0,
+  "currentRatio": 2.512,
+  "debtToEquity": 28.219,
+  "currency": "TWD",
+  "source": "yfinance"
+}

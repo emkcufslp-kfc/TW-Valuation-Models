@@ -1,0 +1,19 @@
+{
+  "ticker": "6789",
+  "longName": "VisEra Technologies Company Ltd.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 318299119,
+  "marketCap": 182385393664,
+  "priceToBook": 9.899622,
+  "dividendYield": 0.51,
+  "trailingPE": 142.53731,
+  "trailingEps": 4.02,
+  "currentPrice": 573.0,
+  "regularMarketPrice": 573.0,
+  "previousClose": 583.0,
+  "currentRatio": 4.825,
+  "debtToEquity": 3.037,
+  "currency": "TWD",
+  "source": "yfinance"
+}

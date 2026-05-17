@@ -1,0 +1,19 @@
+{
+  "ticker": "3006",
+  "longName": "Elite Semiconductor Microelectronics Technology Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 283741000,
+  "marketCap": 67530354688,
+  "priceToBook": 6.2969623,
+  "dividendYield": 0.46,
+  "trailingPE": 273.5632,
+  "trailingEps": 0.87,
+  "currentPrice": 238.0,
+  "regularMarketPrice": 238.0,
+  "previousClose": 216.5,
+  "currentRatio": 3.001,
+  "debtToEquity": 16.476,
+  "currency": "TWD",
+  "source": "yfinance"
+}

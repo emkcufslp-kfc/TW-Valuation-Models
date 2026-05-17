@@ -1,0 +1,19 @@
+{
+  "ticker": "1717",
+  "longName": "Eternal Materials Co., Ltd.",
+  "sector": "Basic Materials",
+  "industry": "Specialty Chemicals",
+  "sharesOutstanding": 1172245483,
+  "marketCap": 93310738432,
+  "priceToBook": 3.3715956,
+  "dividendYield": 1.24,
+  "trailingPE": 56.4539,
+  "trailingEps": 1.41,
+  "currentPrice": 79.6,
+  "regularMarketPrice": 79.6,
+  "previousClose": 80.4,
+  "currentRatio": 1.797,
+  "debtToEquity": 71.937,
+  "currency": "TWD",
+  "source": "yfinance"
+}

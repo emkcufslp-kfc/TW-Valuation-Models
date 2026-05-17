@@ -1,0 +1,19 @@
+{
+  "ticker": "2330",
+  "longName": "Taiwan Semiconductor Manufacturing Company Limited",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 25932000000,
+  "marketCap": 58865638965248,
+  "priceToBook": 9.992737,
+  "dividendYield": 1.08,
+  "trailingPE": 30.800545,
+  "trailingEps": 73.7,
+  "currentPrice": 2270.0,
+  "regularMarketPrice": 2270.0,
+  "previousClose": 2220.0,
+  "currentRatio": 2.488,
+  "debtToEquity": 17.131,
+  "currency": "TWD",
+  "source": "yfinance"
+}

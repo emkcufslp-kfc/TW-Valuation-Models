@@ -1,0 +1,19 @@
+{
+  "ticker": "6239",
+  "longName": "Powertech Technology Inc.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 738797000,
+  "marketCap": 169184509952,
+  "priceToBook": 3.6175792,
+  "dividendYield": 3.02,
+  "trailingPE": 30.738256,
+  "trailingEps": 7.45,
+  "currentPrice": 229.0,
+  "regularMarketPrice": 229.0,
+  "previousClose": 232.0,
+  "currentRatio": 1.929,
+  "debtToEquity": 38.023,
+  "currency": "TWD",
+  "source": "yfinance"
+}

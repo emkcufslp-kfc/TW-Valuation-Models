@@ -1,0 +1,27 @@
+{
+  "ticker": "2603",
+  "as_of_date": "2026-05-17",
+  "industry_bucket": "景氣循環股",
+  "valuation_method_primary": "景氣中位獲利估值法",
+  "valuation_method_secondary": "股利能力與資產價值輔助法",
+  "fair_value_low": 153.89,
+  "fair_value_base": 164.56,
+  "fair_value_high": 183.73,
+  "valuation_conclusion": "overvalued",
+  "action_stance": "reduce",
+  "confidence": "medium",
+  "reasoning_summary": "長榮目前股價大致落在合理區間內，短期有高股息與運價支撐，但中長期仍屬景氣循環股，不宜用高峰獲利直接做永久估值。",
+  "calculation_logic_summary": "以正常化 EPS 對應景氣中位數 PE 區間估算核心價值，再用每股淨值與股利能力做輔助驗證。重點不是單年高峰賺多少，而是正常週期年份大概值多少。",
+  "key_assumptions": [
+    "不以景氣高峰年度獲利直接視為常態",
+    "市場願意給予高股息支撐，但不會無限提高估值倍數",
+    "未來運價與供需結構不假設持續極端有利"
+  ],
+  "key_risks": [
+    "全球景氣放緩導致運價回落",
+    "供給增加壓縮未來獲利中樞",
+    "市場過度把高配息視為長期常態"
+  ],
+  "market_context_used": true,
+  "generated_at": "2026-05-17T05:34:03+00:00"
+}

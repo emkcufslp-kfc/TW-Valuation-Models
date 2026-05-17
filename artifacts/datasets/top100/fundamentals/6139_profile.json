@@ -1,0 +1,19 @@
+{
+  "ticker": "6139",
+  "longName": "L&K Engineering Co., Ltd.",
+  "sector": "Industrials",
+  "industry": "Engineering & Construction",
+  "sharesOutstanding": 235330000,
+  "marketCap": 169437593600,
+  "priceToBook": 8.705219,
+  "dividendYield": 2.02,
+  "trailingPE": 23.692005,
+  "trailingEps": 30.39,
+  "currentPrice": 720.0,
+  "regularMarketPrice": 720.0,
+  "previousClose": 686.0,
+  "currentRatio": 1.38,
+  "debtToEquity": 9.905,
+  "currency": "TWD",
+  "source": "yfinance"
+}

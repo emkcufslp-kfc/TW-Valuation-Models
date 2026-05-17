@@ -1,0 +1,19 @@
+{
+  "ticker": "3665",
+  "longName": "BizLink Holding Inc.",
+  "sector": "Industrials",
+  "industry": "Electrical Equipment & Parts",
+  "sharesOutstanding": 194960000,
+  "marketCap": 438660005888,
+  "priceToBook": 9.406826,
+  "dividendYield": 0.42,
+  "trailingPE": 48.648647,
+  "trailingEps": 46.25,
+  "currentPrice": 2250.0,
+  "regularMarketPrice": 2250.0,
+  "previousClose": 2500.0,
+  "currentRatio": 2.492,
+  "debtToEquity": 38.21,
+  "currency": "TWD",
+  "source": "yfinance"
+}

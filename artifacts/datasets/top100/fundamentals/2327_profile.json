@@ -1,0 +1,19 @@
+{
+  "ticker": "2327",
+  "longName": "Yageo Corporation",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 2058730484,
+  "marketCap": 951133470720,
+  "priceToBook": 5.6050954,
+  "dividendYield": 1.19,
+  "trailingPE": 40.278988,
+  "trailingEps": 11.47,
+  "currentPrice": 462.0,
+  "regularMarketPrice": 462.0,
+  "previousClose": 420.0,
+  "currentRatio": 8.62,
+  "debtToEquity": 8.187,
+  "currency": "TWD",
+  "source": "yfinance"
+}

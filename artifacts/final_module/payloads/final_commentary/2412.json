@@ -1,0 +1,65 @@
+{
+  "ticker": "2412",
+  "as_of_date": "2026-05-17",
+  "company_name": "中華電信股份有限公司",
+  "internal_model_snapshot": {
+    "buffett3": {
+      "fair_value": 96.773,
+      "conclusion": "高估",
+      "action": "避開",
+      "comment": "Buffett 3.0 對防禦型股票偏重收益安全邊際，因此估值較嚴格。"
+    },
+    "imfs": {
+      "fair_value": 61.3377,
+      "conclusion": "高估",
+      "action": "保守",
+      "comment": "IMFS 對低成長收益型公司通常較保守。"
+    },
+    "hybrid": {
+      "fair_value": 136.13,
+      "conclusion": "合理",
+      "action": "持有",
+      "comment": "較接近市場綜合定價。"
+    },
+    "quant": {
+      "score": 37.0,
+      "conclusion": "偏中性略弱",
+      "action": "觀察",
+      "comment": "因子分數適合做排序輔助，不適合單獨取代估值結論。"
+    }
+  },
+  "independent_ai_snapshot": {
+    "fair_value_range": "131.69-149.36",
+    "base_fair_value": 141.21,
+    "conclusion": "合理",
+    "action": "持有",
+    "confidence": "中高"
+  },
+  "news_snapshot": {
+    "summary": "近期新聞主軸集中在：財測展望、獲利與營收。",
+    "sentiment": "偏多",
+    "comment": "市場承認其防守與收益價值，但也普遍接受成長性有限。"
+  },
+  "public_vs_institution_snapshot": {
+    "public_view": "偏穩健正向，重視存股與配息。",
+    "institution_view": "偏中性，對防禦型標的的評價多以收益穩定性為主。",
+    "divergence": "公眾觀點比法人更樂觀。"
+  },
+  "model_difference_explanation": "Buffett 3.0 與 IMFS 對中華電信偏保守，因為這類公司成長性有限；Hybrid 與獨立 AI 較能反映防禦型資產在市場中的合理溢價。",
+  "final_conclusion": {
+    "valuation_label": "合理",
+    "action_label": "持有",
+    "summary": "中華電信屬於穩定收益型標的，目前股價 137.5 元已接近合理區上緣，較適合作為防守配置持有。"
+  },
+  "risk_summary": [
+    "若配息政策改變，評價中樞可能下降",
+    "若利率環境改變，高股息資產吸引力可能下降",
+    "成長性不足限制評價上修空間"
+  ],
+  "change_view_conditions": [
+    "若股價回落且殖利率提升，可轉為偏多。",
+    "若配息能力或現金流品質優於預期，可小幅上修合理價。",
+    "若收益穩定性受損，應下修評價。"
+  ],
+  "generated_at": "2026-05-17T05:34:03+00:00"
+}

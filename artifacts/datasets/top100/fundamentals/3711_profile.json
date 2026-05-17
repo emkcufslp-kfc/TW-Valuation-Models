@@ -1,0 +1,19 @@
+{
+  "ticker": "3711",
+  "longName": "ASE Technology Holding Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 4387891577,
+  "marketCap": 2404564598784,
+  "priceToBook": 6.835048,
+  "dividendYield": 0.97,
+  "trailingPE": 53.778217,
+  "trailingEps": 10.19,
+  "currentPrice": 548.0,
+  "regularMarketPrice": 548.0,
+  "previousClose": 548.0,
+  "currentRatio": 1.147,
+  "debtToEquity": 67.417,
+  "currency": "TWD",
+  "source": "yfinance"
+}

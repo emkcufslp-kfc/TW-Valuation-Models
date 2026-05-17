@@ -1,0 +1,19 @@
+{
+  "ticker": "1229",
+  "longName": "Lien Hwa Industrial Holdings Corporation",
+  "sector": "Industrials",
+  "industry": "Conglomerates",
+  "sharesOutstanding": 1788722000,
+  "marketCap": 71459446784,
+  "priceToBook": 1.2493355,
+  "dividendYield": 3.23,
+  "trailingPE": 15.544747,
+  "trailingEps": 2.57,
+  "currentPrice": 39.95,
+  "regularMarketPrice": 39.95,
+  "previousClose": 40.3,
+  "currentRatio": 1.184,
+  "debtToEquity": 14.792,
+  "currency": "TWD",
+  "source": "yfinance"
+}

@@ -1,0 +1,19 @@
+{
+  "ticker": "4958",
+  "longName": "Zhen Ding Technology Holding Limited",
+  "sector": "Technology",
+  "industry": "Electronic Components",
+  "sharesOutstanding": 1069748590,
+  "marketCap": 466945277952,
+  "priceToBook": 3.7676406,
+  "dividendYield": 0.78,
+  "trailingPE": 64.47563,
+  "trailingEps": 6.77,
+  "currentPrice": 436.5,
+  "regularMarketPrice": 436.5,
+  "previousClose": 442.5,
+  "currentRatio": 1.588,
+  "debtToEquity": 37.524,
+  "currency": "TWD",
+  "source": "yfinance"
+}

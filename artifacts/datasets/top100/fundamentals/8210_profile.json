@@ -1,0 +1,19 @@
+{
+  "ticker": "8210",
+  "longName": "Chenbro Micom Co., Ltd.",
+  "sector": "Technology",
+  "industry": "Computer Hardware",
+  "sharesOutstanding": 125319146,
+  "marketCap": 182965944320,
+  "priceToBook": 15.462499,
+  "dividendYield": 0.49,
+  "trailingPE": 51.372272,
+  "trailingEps": 28.42,
+  "currentPrice": 1460.0,
+  "regularMarketPrice": 1460.0,
+  "previousClose": 1520.0,
+  "currentRatio": 1.771,
+  "debtToEquity": 36.088,
+  "currency": "TWD",
+  "source": "yfinance"
+}

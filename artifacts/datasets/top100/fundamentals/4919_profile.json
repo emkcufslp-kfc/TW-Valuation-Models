@@ -1,0 +1,19 @@
+{
+  "ticker": "4919",
+  "longName": "Nuvoton Technology Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 419765000,
+  "marketCap": 67162398720,
+  "priceToBook": 5.12,
+  "dividendYield": 0.24,
+  "trailingPE": null,
+  "trailingEps": -3.97,
+  "currentPrice": 160.0,
+  "regularMarketPrice": 160.0,
+  "previousClose": 166.0,
+  "currentRatio": 2.07,
+  "debtToEquity": 54.34,
+  "currency": "TWD",
+  "source": "yfinance"
+}

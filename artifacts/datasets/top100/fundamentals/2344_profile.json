@@ -1,0 +1,19 @@
+{
+  "ticker": "2344",
+  "longName": "Winbond Electronics Corporation",
+  "sector": "Technology",
+  "industry": "Semiconductors",
+  "sharesOutstanding": 4500000193,
+  "marketCap": 603000012800,
+  "priceToBook": 5.586592,
+  "dividendYield": 0.51,
+  "trailingPE": 152.27274,
+  "trailingEps": 0.88,
+  "currentPrice": 134.0,
+  "regularMarketPrice": 134.0,
+  "previousClose": 122.0,
+  "currentRatio": 1.57,
+  "debtToEquity": 47.522,
+  "currency": "TWD",
+  "source": "yfinance"
+}

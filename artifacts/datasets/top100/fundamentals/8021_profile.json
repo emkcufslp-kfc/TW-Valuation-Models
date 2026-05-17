@@ -1,0 +1,19 @@
+{
+  "ticker": "8021",
+  "longName": "Topoint Technology Co., Ltd.",
+  "sector": "Industrials",
+  "industry": "Tools & Accessories",
+  "sharesOutstanding": 145042467,
+  "marketCap": 71143325696,
+  "priceToBook": 14.450271,
+  "dividendYield": 0.27,
+  "trailingPE": 180.33089,
+  "trailingEps": 2.72,
+  "currentPrice": 490.5,
+  "regularMarketPrice": 490.5,
+  "previousClose": 446.0,
+  "currentRatio": 2.458,
+  "debtToEquity": 13.682,
+  "currency": "TWD",
+  "source": "yfinance"
+}
