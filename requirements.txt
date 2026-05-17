@@ -1,0 +1,9 @@
+pandas
+numpy
+PyYAML
+streamlit
+scikit-learn
+xgboost
+backtrader
+yfinance
+matplotlib

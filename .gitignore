@@ -1,0 +1,13 @@
+.deps/
+artifacts/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+_tmp_streamlit*
+*.log
+
+.DS_Store
+Thumbs.db
