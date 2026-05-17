@@ -1101,11 +1101,43 @@ def init_state() -> None:
         st.session_state.previous_page_mode = st.session_state.page_mode
 
 
+DEMO_TICKERS = ["2330", "2881", "2603", "2412"]
+
+
+def normalized_shared_data_available() -> bool:
+    normalized_root = PATHS.normalized_root
+    required = [
+        normalized_root / "universe_snapshot.csv",
+        normalized_root / "valuation_snapshot.csv",
+        normalized_root / "fundamentals_snapshot.csv",
+    ]
+    return all(path.exists() for path in required)
+
+
+def bootstrap_public_demo_results() -> None:
+    for ticker in DEMO_TICKERS:
+        try:
+            build_single_ticker_model_result(PATHS, ticker)
+            refresh_live_final_module_context(PATHS, [ticker])
+        except Exception:
+            continue
+    build_final_module_payloads(PATHS, tickers=DEMO_TICKERS)
+
+
 def ensure_outputs() -> None:
-    if not (PATHS.artifacts_root / "datasets" / "top100" / "dataset_summary.json").exists():
-        build_top100_dataset(PATHS)
-    if not RESULTS_PATH.exists():
-        build_all_model_results(PATHS)
+    has_top100_dataset = (PATHS.artifacts_root / "datasets" / "top100" / "dataset_summary.json").exists()
+    has_results = RESULTS_PATH.exists()
+    if has_top100_dataset and has_results:
+        return
+
+    if normalized_shared_data_available():
+        if not has_top100_dataset:
+            build_top100_dataset(PATHS)
+        if not has_results:
+            build_all_model_results(PATHS)
+        return
+
+    bootstrap_public_demo_results()
 
 
 def should_refresh_final_ai(page_mode: object, previous_page_mode: object) -> bool:
@@ -1135,11 +1167,44 @@ def normalize_ticker(raw_value: object) -> str:
 @st.cache_data(show_spinner=False)
 def load_results() -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
     ensure_outputs()
-    results_df = pd.read_csv(RESULTS_PATH)
-    dataset = load_top100_dataset(PATHS)
-    result_summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
-    results_df["ticker"] = results_df["ticker"].astype(str)
-    results_df["dataset_root"] = str(dataset["dataset_root"])
+    if RESULTS_PATH.exists():
+        results_df = pd.read_csv(RESULTS_PATH)
+    else:
+        results_df = pd.DataFrame()
+    dataset: dict[str, object]
+    result_summary: dict[str, object]
+    if (PATHS.artifacts_root / "datasets" / "top100" / "dataset_summary.json").exists():
+        dataset = load_top100_dataset(PATHS)
+        result_summary = (
+            json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+            if SUMMARY_PATH.exists()
+            else {"generated_at": dataset.get("summary", {}).get("generated_at", ""), "demo_mode": False}
+        )
+    else:
+        dataset = {
+            "summary": {
+                "generated_at": datetime.now().isoformat(),
+                "summary": {
+                    "top100_count": 0,
+                    "monthly_revenue_rows": 0,
+                },
+                "demo_mode": True,
+            },
+            "dataset_root": PATHS.on_demand_datasets_root,
+            "top100_universe": pd.DataFrame(columns=["ticker", "company_name", "industry", "market_cap"]),
+            "top100_valuation": pd.DataFrame(),
+            "top100_fundamentals_snapshot": pd.DataFrame(),
+            "monthly_revenue": pd.DataFrame(),
+        }
+        result_summary = {
+            "generated_at": dataset["summary"]["generated_at"],
+            "result_count": 0,
+            "demo_mode": True,
+        }
+    if not results_df.empty and "ticker" in results_df.columns:
+        results_df["ticker"] = results_df["ticker"].astype(str)
+    if not results_df.empty and "dataset_root" not in results_df.columns:
+        results_df["dataset_root"] = str(dataset["dataset_root"])
     if PATHS.on_demand_results_root.exists():
         on_demand_rows: list[dict[str, object]] = []
         for path in sorted(PATHS.on_demand_results_root.glob("*.json")):
@@ -1156,7 +1221,35 @@ def load_results() -> tuple[pd.DataFrame, dict[str, object], dict[str, object]]:
                     .drop_duplicates(subset=["ticker"], keep="last")
                     .reset_index(drop=True)
                 )
-    dataset["top100_universe"]["ticker"] = dataset["top100_universe"]["ticker"].astype(str)
+    if results_df.empty and PATHS.on_demand_results_root.exists():
+        synthesized_rows: list[dict[str, object]] = []
+        for path in sorted(PATHS.on_demand_results_root.glob("*.json")):
+            payload = load_json_optional(str(path))
+            row = payload.get("row")
+            if isinstance(row, dict):
+                synthesized_rows.append(row)
+        if synthesized_rows:
+            results_df = pd.DataFrame(synthesized_rows)
+
+    if not results_df.empty:
+        results_df["ticker"] = results_df["ticker"].astype(str)
+        if "dataset_root" not in results_df.columns:
+            results_df["dataset_root"] = str(dataset["dataset_root"])
+        if dataset["top100_universe"].empty:
+            dataset["top100_universe"] = pd.DataFrame(
+                [
+                    {
+                        "ticker": row.get("ticker"),
+                        "company_name": row.get("name"),
+                        "industry": row.get("industry"),
+                        "market_cap": row.get("market_cap"),
+                    }
+                    for row in results_df.to_dict("records")
+                ]
+            )
+    if "ticker" in dataset["top100_universe"].columns:
+        dataset["top100_universe"]["ticker"] = dataset["top100_universe"]["ticker"].astype(str)
+    result_summary["result_count"] = int(len(results_df))
     return results_df, dataset, result_summary
 
 

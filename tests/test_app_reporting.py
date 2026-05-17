@@ -4,6 +4,7 @@ import json
 import sys
 import unittest
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
 DEPS_ROOT = WORKSPACE_ROOT / ".deps"
@@ -13,9 +14,55 @@ if str(DEPS_ROOT) not in sys.path:
 import pandas as pd
 
 import app
+from tw_valuation_models.config import WorkspacePaths
 
 
 class AppReportingTests(unittest.TestCase):
+    def test_load_results_falls_back_to_on_demand_demo_without_normalized_shared_data(self) -> None:
+        original_paths = app.PATHS
+        original_results_path = app.RESULTS_PATH
+        original_summary_path = app.SUMMARY_PATH
+        original_ensure_outputs = app.ensure_outputs
+        app.load_results.clear()
+        try:
+            with TemporaryDirectory() as tmpdir:
+                root = Path(tmpdir)
+                on_demand_root = root / "artifacts" / "runtime" / "on_demand" / "model_results"
+                on_demand_root.mkdir(parents=True, exist_ok=True)
+                dataset_root = root / "artifacts" / "runtime" / "on_demand" / "datasets" / "2330"
+                payload = {
+                    "generated_at": "2026-05-18T00:00:00+08:00",
+                    "ticker": "2330",
+                    "dataset_root": str(dataset_root),
+                    "row": {
+                        "ticker": "2330",
+                        "name": "TSMC",
+                        "industry": "Semiconductor",
+                        "market_cap": 1,
+                        "price": 1000.0,
+                        "dataset_root": str(dataset_root),
+                    },
+                }
+                (on_demand_root / "2330.json").write_text(
+                    json.dumps(payload, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+                app.PATHS = WorkspacePaths(workspace_root=root)
+                app.RESULTS_PATH = root / "artifacts" / "results" / "top100_model_results.csv"
+                app.SUMMARY_PATH = root / "artifacts" / "results" / "top100_model_results_summary.json"
+                app.ensure_outputs = lambda: None
+
+                results_df, dataset, result_summary = app.load_results()
+
+                self.assertEqual(results_df.iloc[0]["ticker"], "2330")
+                self.assertTrue(result_summary["demo_mode"])
+                self.assertEqual(dataset["top100_universe"].iloc[0]["ticker"], "2330")
+        finally:
+            app.PATHS = original_paths
+            app.RESULTS_PATH = original_results_path
+            app.SUMMARY_PATH = original_summary_path
+            app.ensure_outputs = original_ensure_outputs
+            app.load_results.clear()
     def test_should_refresh_final_ai_only_on_transition_into_final_ai_page(self) -> None:
         self.assertTrue(app.should_refresh_final_ai("Final AI 專區", "主頁總覽"))
         self.assertFalse(app.should_refresh_final_ai("Final AI 專區", "Final AI 專區"))
