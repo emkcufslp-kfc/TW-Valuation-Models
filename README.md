@@ -252,6 +252,7 @@ python -m compileall tw_valuation_models tests app.py streamlit_app.py
 
 ## 已知限制
 
+- GitHub / 雲端部署用的價格快照目前只保留最近 `5` 年，以控制 repo 體積；本機 shared data 與本機完整執行流程仍可保留更長歷史
 - `新聞 / 法人 / 公眾評論` 目前已是即時更新，但對非 pilot ticker 的抽取深度仍可再強化
 - `IMFS / 台股 Buffett Quant / 混合模型` 已隨 repo 內建；若這三個模型顯示 `unavailable`，通常代表部署環境讀取 `_external/` 失敗或被手動覆寫到錯誤路徑
 - `Final AI` 的市場脈絡品質目前在下列 ticker 最成熟：
