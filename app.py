@@ -531,21 +531,6 @@ st.markdown(
         border-top: 1px solid rgba(109, 143, 120, 0.12);
     }
 
-    .sparkline-shell {
-        margin: 0.2rem 0 0.25rem 0;
-        padding: 0.1rem 0 0 0;
-        border-top: 1px solid rgba(109, 143, 120, 0.08);
-        border-bottom: 1px solid rgba(109, 143, 120, 0.08);
-    }
-
-    .sparkline-shell img {
-        width: 100%;
-        height: 64px;
-        object-fit: cover;
-        display: block;
-        opacity: 0.94;
-    }
-
     .card-stat-row {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -3078,14 +3063,12 @@ if st.session_state.page_mode == "主頁總覽":
             )
         st.dataframe(pd.DataFrame(table_rows).astype(str), width="stretch", hide_index=True)
     else:
-        spark_source = price_df["Close"].tail(40)
         models_per_row = 3 if len(overview_models) >= 5 else max(1, len(overview_models))
         for row_models in chunked(overview_models, models_per_row):
             st.markdown('<div class="overview-row">', unsafe_allow_html=True)
             card_cols = st.columns(len(row_models), gap="medium")
             for idx, model_id in enumerate(row_models):
                 payload = get_model_payload(selected_row, model_id)
-                sparkline_html = render_sparkline(spark_source, payload["color"])
                 with card_cols[idx]:
                     st.markdown(
                         f"""
@@ -3099,7 +3082,6 @@ if st.session_state.page_mode == "主頁總覽":
                             </div>
                             <div class="metric-label">{payload['value_label']}</div>
                             <div class="metric-value">{payload['gap_text']}</div>
-                            {sparkline_html}
                             <div class="card-stats">
                                 <div class="card-stat-row"><div class="card-stat-label">目前股價</div><div class="card-stat-value">{payload['current_price_text']}</div></div>
                                 <div class="card-stat-row"><div class="card-stat-label">{payload['fair_label']}</div><div class="card-stat-value">{payload['fair_value_text']}</div></div>
