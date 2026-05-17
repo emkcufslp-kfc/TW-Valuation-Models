@@ -1,14 +1,28 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
 
-DEFAULT_SHARED_DATA_ROOT = Path(r"D:\Claude projects\主觀看盤\data")
-DEFAULT_SOURCE_MODEL_ROOT = Path(
-    r"D:\Claude projects\TW hybrid model\台股法說會估值\Taiwwan-stock-hybrid-model"
+def _module_workspace_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
+def _path_from_env(name: str, default: Path) -> Path:
+    value = os.getenv(name, "").strip()
+    return Path(value).expanduser() if value else default
+
+
+DEFAULT_WORKSPACE_ROOT = _path_from_env("TVM_WORKSPACE_ROOT", _module_workspace_root())
+DEFAULT_SHARED_DATA_ROOT = _path_from_env(
+    "TVM_SHARED_DATA_ROOT",
+    DEFAULT_WORKSPACE_ROOT / "artifacts" / "shared_data",
 )
-DEFAULT_WORKSPACE_ROOT = Path(r"D:\Codex projects\TW Valuation models")
+DEFAULT_SOURCE_MODEL_ROOT = _path_from_env(
+    "TVM_SOURCE_MODEL_ROOT",
+    DEFAULT_WORKSPACE_ROOT / "_external" / "tw_hybrid_model",
+)
 
 
 @dataclass(frozen=True)
@@ -48,6 +62,31 @@ class WorkspacePaths:
     @property
     def on_demand_datasets_root(self) -> Path:
         return self.on_demand_root / "datasets"
+
+    @property
+    def external_models_root(self) -> Path:
+        return self.workspace_root / "_external"
+
+    @property
+    def imfs_source_root(self) -> Path:
+        return _path_from_env(
+            "TVM_IMFS_SOURCE_ROOT",
+            self.external_models_root / "imfs_tw_stock",
+        )
+
+    @property
+    def quant_source_root(self) -> Path:
+        return _path_from_env(
+            "TVM_QUANT_SOURCE_ROOT",
+            self.external_models_root / "tw_buffett_quant",
+        )
+
+    @property
+    def hybrid_source_root(self) -> Path:
+        return _path_from_env(
+            "TVM_HYBRID_SOURCE_ROOT",
+            self.source_model_root,
+        )
 
     @property
     def final_module_shared_root(self) -> Path:

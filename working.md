@@ -3106,3 +3106,86 @@ Current state after this module:
 1. the app can now generate latest-data outputs for arbitrary tickers, not only the top100 universe
 2. Final AI payload generation is no longer limited to the four original pilot tickers
 3. market/news/public context is still richest for the curated pilot set, but non-pilot tickers now have a working independent AI and final commentary path
+
+### Module 57 Added: Streamlit Cloud Deployment Hardening Pass 1
+Purpose:
+- prepare the project for free public deployment on Streamlit Community Cloud
+- remove hard dependency on Windows-only absolute paths
+- fail with clear app messaging when external model sources are unavailable
+
+Code and verification completed:
+1. updated [tw_valuation_models/config.py](/D:/Codex%20projects/TW%20Valuation%20models/tw_valuation_models/config.py)
+   - workspace, shared-data, and source-model roots now support environment variables
+   - defaults now fall back to repo-relative paths instead of `D:\...`
+   - added repo-relative external model roots:
+     - `imfs_source_root`
+     - `quant_source_root`
+     - `hybrid_source_root`
+2. updated [tw_valuation_models/source_bridge.py](/D:/Codex%20projects/TW%20Valuation%20models/tw_valuation_models/source_bridge.py)
+   - external model imports now read from configurable roots
+   - missing external source roots now raise clear `FileNotFoundError` messages
+3. updated [app.py](/D:/Codex%20projects/TW%20Valuation%20models/app.py)
+   - startup now catches initialization failures and shows deployment guidance in the UI
+   - the app stops cleanly instead of dropping the user into a raw traceback
+4. added deployment-oriented files:
+   - [README.md](/D:/Codex%20projects/TW%20Valuation%20models/README.md) public deployment notes
+   - [.streamlit/config.toml](/D:/Codex%20projects/TW%20Valuation%20models/.streamlit/config.toml)
+5. added regression coverage:
+   - [tests/test_config.py](/D:/Codex%20projects/TW%20Valuation%20models/tests/test_config.py)
+   - [tests/test_source_bridge.py](/D:/Codex%20projects/TW%20Valuation%20models/tests/test_source_bridge.py)
+
+Verification completed:
+1. `python -m unittest tests.test_config tests.test_source_bridge tests.test_app_reporting tests.test_final_module_data tests.test_final_module_payloads`
+2. `python -m compileall tw_valuation_models tests app.py`
+
+Current state after this module:
+1. the project is materially closer to Streamlit Community Cloud compatibility
+2. hardcoded local Windows paths are no longer the primary blocker
+3. the main remaining blocker for full public deployment is external model source availability for:
+   - IMFS
+   - TW Buffett Quant
+   - TW Hybrid
+4. if those external sources are not provided in the cloud environment, the app now fails gracefully with setup guidance instead of crashing invisibly
+
+### Module 58 Added: Public Demo Degradation Path
+Purpose:
+- make a free public demo deployment realistic even when the external source-model repos are not available in the cloud
+- keep the app usable with internal Buffett-family models and Final AI instead of failing the entire pipeline
+
+Code and verification completed:
+1. updated [tw_valuation_models/portfolio_builder.py](/D:/Codex%20projects/TW%20Valuation%20models/tw_valuation_models/portfolio_builder.py)
+   - external models are now loaded through an optional availability layer
+   - missing IMFS / Quant / Hybrid sources no longer crash result generation
+   - fallback outputs are generated with stable placeholder values and explicit `unavailable` signals
+   - result summaries now include external model availability metadata
+2. updated [app.py](/D:/Codex%20projects/TW%20Valuation%20models/app.py)
+   - sidebar now detects whether external model roots exist
+   - public demo mode shows a warning when IMFS / Quant / Hybrid are unavailable
+3. updated [README.md](/D:/Codex%20projects/TW%20Valuation%20models/README.md)
+   - documented the public demo mode behavior
+4. added regression coverage:
+   - [tests/test_portfolio_builder.py](/D:/Codex%20projects/TW%20Valuation%20models/tests/test_portfolio_builder.py)
+
+Verification completed:
+1. `python -m unittest tests.test_portfolio_builder tests.test_config tests.test_source_bridge tests.test_final_module_payloads tests.test_app_reporting`
+2. `python -m compileall tw_valuation_models tests app.py`
+
+Current state after this module:
+1. a free public Streamlit demo is now feasible without bundling all external source-model repos on day one
+2. missing external model repos degrade to an explicit demo-mode warning instead of breaking the whole app
+3. the remaining work for a real public launch is mostly deployment wiring and a cloud smoke test, not core app stabilization
+### Module 59 Added: Streamlit Public Demo Entry And Deploy Docs
+Purpose:
+- prepare the repo for a free public Streamlit Community Cloud demo
+- add a standard `streamlit_app.py` entrypoint
+- provide a clean Traditional Chinese deployment README and secrets example
+
+Changes:
+- rewrote `README.md` into a clean UTF-8 deployment/user guide
+- added `streamlit_app.py` as the standard Streamlit Cloud entrypoint
+- added `.streamlit/secrets.toml.example` for deploy-time environment mapping
+- updated `.gitignore` to exclude `.streamlit/secrets.toml`
+
+Notes:
+- public demo mode still degrades gracefully when external model repos are unavailable
+- `IMFS`, `台股 Buffett Quant`, and `混合模型` remain optional in cloud demo mode

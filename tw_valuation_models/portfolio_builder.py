@@ -23,6 +23,29 @@ from .models.buffett_three import run_buffett_three_valuation
 from .source_bridge import import_imfs_modules, import_tw_buffett_quant_modules, import_tw_hybrid_modules
 
 
+def _load_optional_external_modules(paths: WorkspacePaths) -> tuple[dict[str, object] | None, dict[str, object] | None, dict[str, object] | None, dict[str, str]]:
+    availability: dict[str, str] = {}
+    imfs_modules = _safe_import_bundle("imfs", import_imfs_modules, paths, availability)
+    quant_modules = _safe_import_bundle("tw_buffett_quant", import_tw_buffett_quant_modules, paths, availability)
+    hybrid_modules = _safe_import_bundle("tw_hybrid", import_tw_hybrid_modules, paths, availability)
+    return imfs_modules, quant_modules, hybrid_modules, availability
+
+
+def _safe_import_bundle(
+    key: str,
+    loader,
+    paths: WorkspacePaths,
+    availability: dict[str, str],
+) -> dict[str, object] | None:
+    try:
+        bundle = loader(paths)
+        availability[key] = "ready"
+        return bundle
+    except Exception as exc:
+        availability[key] = f"{type(exc).__name__}: {exc}"
+        return None
+
+
 def build_all_model_results(paths: WorkspacePaths, top_n: int = 100) -> dict[str, object]:
     dataset_root = paths.artifacts_root / "datasets" / "top100"
     required_dataset_files = [
@@ -48,16 +71,14 @@ def build_all_model_results(paths: WorkspacePaths, top_n: int = 100) -> dict[str
     buffett3_annual_df = pd.read_csv(dataset_root / "buffett3_annual_fundamentals.csv")
     buffett3_quarterly_df = pd.read_csv(dataset_root / "buffett3_quarterly_fundamentals.csv")
 
-    imfs_modules = import_imfs_modules(paths)
-    quant_modules = import_tw_buffett_quant_modules(paths)
-    hybrid_modules = import_tw_hybrid_modules(paths)
+    imfs_modules, quant_modules, hybrid_modules, external_availability = _load_optional_external_modules(paths)
 
-    routing = imfs_modules["routing"]
-    models = imfs_modules["models"]
-    engine = imfs_modules["engine"]
-    strict_mode = quant_modules["strict_mode"]
-    criteria_mod = quant_modules["criteria"]
-    criteria = criteria_mod.get_default_filter_criteria()
+    routing = imfs_modules["routing"] if imfs_modules else None
+    models = imfs_modules["models"] if imfs_modules else None
+    engine = imfs_modules["engine"] if imfs_modules else None
+    strict_mode = quant_modules["strict_mode"] if quant_modules else None
+    criteria_mod = quant_modules["criteria"] if quant_modules else None
+    criteria = criteria_mod.get_default_filter_criteria() if criteria_mod else {}
 
     taiex_df = pd.read_csv(dataset_root / "TAIEX.csv")
     taiex_df["Date"] = pd.to_datetime(taiex_df["Date"], errors="coerce")
@@ -98,35 +119,47 @@ def build_all_model_results(paths: WorkspacePaths, top_n: int = 100) -> dict[str
         buffett_v1 = run_buffett_dcf(buffett_stock, valuation_mode="avgEps")
         buffett_v2 = run_buffett_dcf(buffett_stock, valuation_mode="fcfps")
 
-        imfs_result = _run_imfs_for_ticker(
-            ticker=ticker,
-            universe_row=universe_row,
-            valuation_row=valuation_row,
-            fundamentals_row=fundamentals_row,
-            annual_df=annual_df,
-            quarterly_df=quarterly_df,
-            price_df=price_df,
-            models_module=models,
-            routing_module=routing,
-            engine_module=engine,
+        imfs_result = (
+            _run_imfs_for_ticker(
+                ticker=ticker,
+                universe_row=universe_row,
+                valuation_row=valuation_row,
+                fundamentals_row=fundamentals_row,
+                annual_df=annual_df,
+                quarterly_df=quarterly_df,
+                price_df=price_df,
+                models_module=models,
+                routing_module=routing,
+                engine_module=engine,
+            )
+            if imfs_modules
+            else _unavailable_imfs_result(external_availability.get("imfs", "not available"))
         )
 
-        quant_result = _run_tw_buffett_quant_for_ticker(
-            ticker=ticker,
-            sector=profile.get("sector") or universe_row.get("industry") or "",
-            valuation_row=valuation_row,
-            annual_df=annual_df,
-            monthly_revenue_df=monthly_revenue_df,
-            price_df=price_df,
-            taiex_df=taiex_df,
-            strict_mode_module=strict_mode,
-            criteria=criteria,
+        quant_result = (
+            _run_tw_buffett_quant_for_ticker(
+                ticker=ticker,
+                sector=profile.get("sector") or universe_row.get("industry") or "",
+                valuation_row=valuation_row,
+                annual_df=annual_df,
+                monthly_revenue_df=monthly_revenue_df,
+                price_df=price_df,
+                taiex_df=taiex_df,
+                strict_mode_module=strict_mode,
+                criteria=criteria,
+            )
+            if quant_modules
+            else _unavailable_quant_result(external_availability.get("tw_buffett_quant", "not available"))
         )
 
-        hybrid_result = _run_tw_hybrid_for_ticker(
-            ticker=ticker,
-            price_df=price_df,
-            strategy_module=hybrid_modules["strategy"],
+        hybrid_result = (
+            _run_tw_hybrid_for_ticker(
+                ticker=ticker,
+                price_df=price_df,
+                strategy_module=hybrid_modules["strategy"],
+            )
+            if hybrid_modules
+            else _unavailable_hybrid_result(external_availability.get("tw_hybrid", "not available"))
         )
         buffett3_result = run_buffett_three_valuation(
             ticker=ticker,
@@ -224,6 +257,7 @@ def build_all_model_results(paths: WorkspacePaths, top_n: int = 100) -> dict[str
             "tw_buffett_quant": "direct_original_strict_mode_engine_with_integrated_inputs",
             "tw_hybrid": "direct_original_strategy_compute_technical_features_and_EnsembleValuationModel",
         },
+        "external_model_availability": external_availability,
     }
     (output_root / "top100_model_results_summary.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -269,15 +303,13 @@ def build_single_ticker_model_result(paths: WorkspacePaths, ticker: str) -> dict
         else {}
     )
 
-    imfs_modules = import_imfs_modules(paths)
-    quant_modules = import_tw_buffett_quant_modules(paths)
-    hybrid_modules = import_tw_hybrid_modules(paths)
-    routing = imfs_modules["routing"]
-    models = imfs_modules["models"]
-    engine = imfs_modules["engine"]
-    strict_mode = quant_modules["strict_mode"]
-    criteria_mod = quant_modules["criteria"]
-    criteria = criteria_mod.get_default_filter_criteria()
+    imfs_modules, quant_modules, hybrid_modules, external_availability = _load_optional_external_modules(paths)
+    routing = imfs_modules["routing"] if imfs_modules else None
+    models = imfs_modules["models"] if imfs_modules else None
+    engine = imfs_modules["engine"] if imfs_modules else None
+    strict_mode = quant_modules["strict_mode"] if quant_modules else None
+    criteria_mod = quant_modules["criteria"] if quant_modules else None
+    criteria = criteria_mod.get_default_filter_criteria() if criteria_mod else {}
 
     buffett_stock = _make_buffett_stock(
         ticker=ticker,
@@ -289,33 +321,45 @@ def build_single_ticker_model_result(paths: WorkspacePaths, ticker: str) -> dict
     )
     buffett_v1 = run_buffett_dcf(buffett_stock, valuation_mode="avgEps")
     buffett_v2 = run_buffett_dcf(buffett_stock, valuation_mode="fcfps")
-    imfs_result = _run_imfs_for_ticker(
-        ticker=ticker,
-        universe_row=universe_row,
-        valuation_row=valuation_row,
-        fundamentals_row=fundamentals_row,
-        annual_df=annual_df,
-        quarterly_df=quarterly_df,
-        price_df=price_df,
-        models_module=models,
-        routing_module=routing,
-        engine_module=engine,
+    imfs_result = (
+        _run_imfs_for_ticker(
+            ticker=ticker,
+            universe_row=universe_row,
+            valuation_row=valuation_row,
+            fundamentals_row=fundamentals_row,
+            annual_df=annual_df,
+            quarterly_df=quarterly_df,
+            price_df=price_df,
+            models_module=models,
+            routing_module=routing,
+            engine_module=engine,
+        )
+        if imfs_modules
+        else _unavailable_imfs_result(external_availability.get("imfs", "not available"))
     )
-    quant_result = _run_tw_buffett_quant_for_ticker(
-        ticker=ticker,
-        sector=profile.get("sector") or universe_row.get("industry") or "",
-        valuation_row=valuation_row,
-        annual_df=annual_df,
-        monthly_revenue_df=monthly_revenue_df,
-        price_df=price_df,
-        taiex_df=taiex_df,
-        strict_mode_module=strict_mode,
-        criteria=criteria,
+    quant_result = (
+        _run_tw_buffett_quant_for_ticker(
+            ticker=ticker,
+            sector=profile.get("sector") or universe_row.get("industry") or "",
+            valuation_row=valuation_row,
+            annual_df=annual_df,
+            monthly_revenue_df=monthly_revenue_df,
+            price_df=price_df,
+            taiex_df=taiex_df,
+            strict_mode_module=strict_mode,
+            criteria=criteria,
+        )
+        if quant_modules
+        else _unavailable_quant_result(external_availability.get("tw_buffett_quant", "not available"))
     )
-    hybrid_result = _run_tw_hybrid_for_ticker(
-        ticker=ticker,
-        price_df=price_df,
-        strategy_module=hybrid_modules["strategy"],
+    hybrid_result = (
+        _run_tw_hybrid_for_ticker(
+            ticker=ticker,
+            price_df=price_df,
+            strategy_module=hybrid_modules["strategy"],
+        )
+        if hybrid_modules
+        else _unavailable_hybrid_result(external_availability.get("tw_hybrid", "not available"))
     )
     buffett3_result = run_buffett_three_valuation(
         ticker=ticker,
@@ -420,6 +464,7 @@ def build_single_ticker_model_result(paths: WorkspacePaths, ticker: str) -> dict
         "result_path": str(result_path),
         "buffett3_payload_path": str(buffett3_payload_root / f"{ticker}.json"),
         "row": row,
+        "external_model_availability": external_availability,
     }
 
 
@@ -656,6 +701,23 @@ def _run_imfs_for_ticker(
     }
 
 
+def _unavailable_imfs_result(reason: str) -> dict[str, object]:
+    return {
+        "route": None,
+        "model": "unavailable",
+        "intrinsic_value": None,
+        "gap_pct": None,
+        "signal": "unavailable",
+        "warnings": [f"imfs unavailable: {reason}"],
+        "estimated_revenue_growth_pct": None,
+        "estimated_profit_margin_pct": None,
+        "quality_score": None,
+        "premium_eligible": None,
+        "justified_pe": None,
+        "projected_eps": None,
+    }
+
+
 def _run_tw_buffett_quant_for_ticker(
     *,
     ticker: str,
@@ -721,6 +783,15 @@ def _run_tw_buffett_quant_for_ticker(
     }
 
 
+def _unavailable_quant_result(reason: str) -> dict[str, object]:
+    return {
+        "composite_score": None,
+        "action_plan": "unavailable",
+        "river_signal": "unavailable",
+        "warnings": [f"tw buffett quant unavailable: {reason}"],
+    }
+
+
 def _run_tw_hybrid_for_ticker(*, ticker: str, price_df: pd.DataFrame, strategy_module) -> dict[str, object]:
     feature_df = price_df.copy()
     feature_df["Date"] = pd.to_datetime(feature_df["Date"], errors="coerce")
@@ -762,6 +833,15 @@ def _run_tw_hybrid_for_ticker(*, ticker: str, price_df: pd.DataFrame, strategy_m
         "ens_ret_pct": ens_ret_pct,
         "signal": signal,
         "warnings": [f"cv_rmse_mean={round(float(np.mean(fold_rmse)), 5) if fold_rmse else None}"],
+    }
+
+
+def _unavailable_hybrid_result(reason: str) -> dict[str, object]:
+    return {
+        "ens_price": None,
+        "ens_ret_pct": None,
+        "signal": "unavailable",
+        "warnings": [f"tw hybrid unavailable: {reason}"],
     }
 
 

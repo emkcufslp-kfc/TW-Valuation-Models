@@ -5,6 +5,7 @@ __pycache__/
 *.pyo
 *.pyd
 .pytest_cache/
+.streamlit/secrets.toml
 
 _tmp_streamlit*
 *.log

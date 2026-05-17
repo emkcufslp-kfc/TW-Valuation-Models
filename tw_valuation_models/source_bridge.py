@@ -9,20 +9,19 @@ from .config import WorkspacePaths
 
 def add_source_paths(paths: WorkspacePaths) -> dict[str, Path]:
     roots = {
-        "imfs": Path(r"D:\Claude projects\IMFS_TW_Stock"),
-        "tw_buffett_quant": Path(r"D:\Claude projects\TWSE aihedge\tw-buffett-quant-app"),
-        "tw_hybrid": Path(
-            r"D:\Claude projects\TW hybrid model\台股法說會估值\Taiwwan-stock-hybrid-model"
-        ),
+        "imfs": paths.imfs_source_root,
+        "tw_buffett_quant": paths.quant_source_root,
+        "tw_hybrid": paths.hybrid_source_root,
     }
     for root in roots.values():
-        if str(root) not in sys.path:
+        if root.exists() and str(root) not in sys.path:
             sys.path.insert(0, str(root))
     return roots
 
 
 def import_imfs_modules(paths: WorkspacePaths) -> dict[str, object]:
-    add_source_paths(paths)
+    roots = add_source_paths(paths)
+    _require_source_root("IMFS", roots["imfs"])
     return {
         "models": importlib.import_module("imfs.data.models"),
         "routing": importlib.import_module("imfs.routing.route_classifier"),
@@ -31,7 +30,8 @@ def import_imfs_modules(paths: WorkspacePaths) -> dict[str, object]:
 
 
 def import_tw_buffett_quant_modules(paths: WorkspacePaths) -> dict[str, object]:
-    add_source_paths(paths)
+    roots = add_source_paths(paths)
+    _require_source_root("TW Buffett Quant", roots["tw_buffett_quant"])
     return {
         "strict_mode": importlib.import_module("strict_mode_engine"),
         "criteria": importlib.import_module("criteria_config"),
@@ -39,7 +39,17 @@ def import_tw_buffett_quant_modules(paths: WorkspacePaths) -> dict[str, object]:
 
 
 def import_tw_hybrid_modules(paths: WorkspacePaths) -> dict[str, object]:
-    add_source_paths(paths)
+    roots = add_source_paths(paths)
+    _require_source_root("TW Hybrid", roots["tw_hybrid"])
     return {
         "strategy": importlib.import_module("strategy"),
     }
+
+
+def _require_source_root(model_name: str, root: Path) -> None:
+    if root.exists():
+        return
+    raise FileNotFoundError(
+        f"{model_name} source root not found: {root}. "
+        "Set the corresponding TVM_*_SOURCE_ROOT environment variable or place the source under _external/."
+    )

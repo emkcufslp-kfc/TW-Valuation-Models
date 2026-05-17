@@ -2638,7 +2638,35 @@ def run_all_models() -> None:
 
 
 init_state()
-results_df, dataset, result_summary = load_results()
+try:
+    results_df, dataset, result_summary = load_results()
+except Exception as exc:
+    st.error("應用程式目前無法完成初始化。")
+    st.markdown(
+        dedent(
+            f"""
+            **可能原因**
+
+            - 雲端環境尚未設定資料目錄
+            - 外部模型來源尚未掛載
+            - 首次部署時尚未生成基礎資料
+
+            **目前錯誤**
+
+            `{type(exc).__name__}: {escape(str(exc))}`
+
+            **部署提示**
+
+            - 設定 `TVM_SHARED_DATA_ROOT`
+            - 如需完整模型，設定：
+              - `TVM_IMFS_SOURCE_ROOT`
+              - `TVM_QUANT_SOURCE_ROOT`
+              - `TVM_HYBRID_SOURCE_ROOT`
+            - 若為公開 demo，可先確認 app 至少能生成基礎資料與 Buffett 系列模型
+            """
+        )
+    )
+    st.stop()
 default_dataset_root = str(dataset["dataset_root"])
 diagnostics = load_dataset_diagnostics(default_dataset_root)
 updated_at_raw = result_summary.get("generated_at") or dataset["summary"].get("generated_at") or ""
@@ -2648,6 +2676,12 @@ if updated_at:
         updated_at = datetime.fromisoformat(updated_at.replace("Z", "+00:00")).strftime("%Y/%m/%d %H:%M")
     except Exception:
         pass
+external_model_availability = {
+    "IMFS": PATHS.imfs_source_root.exists(),
+    "台股 Buffett Quant": PATHS.quant_source_root.exists(),
+    "混合模型": PATHS.hybrid_source_root.exists(),
+}
+demo_unavailable_models = [name for name, available in external_model_availability.items() if not available]
 
 results_df = results_df.sort_values("market_cap", ascending=False).reset_index(drop=True)
 ticker_labels = {
@@ -2690,6 +2724,11 @@ with st.sidebar:
         format_func=lambda value: ticker_labels.get(value, value),
     )
     st.session_state.selected_ticker = ticker_selected
+    if demo_unavailable_models:
+        st.warning(
+            "公開 demo 模式：目前缺少外部模型來源，以下模型暫時不可用："
+            + "、".join(demo_unavailable_models)
+        )
     selected_row = results_df[results_df["ticker"] == ticker_selected].iloc[0]
     st.caption(f"{selected_row['name']}｜目前候選 {len(ticker_options)} 檔")
 
