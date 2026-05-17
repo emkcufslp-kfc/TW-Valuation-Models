@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import base64
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from html import escape
 from io import BytesIO
 from pathlib import Path
@@ -20,10 +20,7 @@ from tw_valuation_models.dataset import (
     read_price_history,
     read_quarterly_financials,
 )
-from tw_valuation_models.final_module_data import (
-    refresh_live_final_module_context,
-    run_final_module_pilot,
-)
+from tw_valuation_models.final_module_data import refresh_live_final_module_context
 from tw_valuation_models.final_module_payloads import build_final_module_payloads
 from tw_valuation_models.portfolio_builder import (
     build_all_model_results,
@@ -1132,20 +1129,134 @@ def should_refresh_final_ai(page_mode: object, previous_page_mode: object) -> bo
     return str(page_mode) == "Final AI 專區" and str(previous_page_mode) != "Final AI 專區"
 
 
-def refresh_all_outputs_for_final_ai() -> None:
-    build_top100_dataset(PATHS)
-    build_all_model_results(PATHS)
-    run_final_module_pilot(PATHS, overwrite=True)
-    build_final_module_payloads(PATHS)
+FINAL_AI_MODEL_CACHE_TTL = timedelta(hours=8)
+FINAL_AI_CONTEXT_CACHE_TTL = timedelta(hours=3)
 
 
-def refresh_selected_ticker_for_final_ai(ticker: str) -> None:
+def _load_json_file(path: Path) -> dict[str, object]:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _parse_iso_timestamp(value: object) -> datetime | None:
+    if not value:
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    if text.endswith("Z"):
+        text = text[:-1] + "+00:00"
+    try:
+        return datetime.fromisoformat(text)
+    except ValueError:
+        return None
+
+
+def _is_fresh_enough(timestamp: datetime | None, ttl: timedelta) -> bool:
+    if timestamp is None:
+        return False
+    now = datetime.now(timestamp.tzinfo) if timestamp.tzinfo else datetime.now()
+    return now - timestamp <= ttl
+
+
+def _is_same_local_day(timestamp: datetime | None) -> bool:
+    if timestamp is None:
+        return False
+    return timestamp.date() == datetime.now(timestamp.tzinfo).date() if timestamp.tzinfo else timestamp.date() == datetime.now().date()
+
+
+def get_ticker_cache_status(ticker: str) -> dict[str, object]:
+    ticker = normalize_ticker(ticker)
+    dataset_summary_path = PATHS.on_demand_datasets_root / ticker / "dataset_summary.json"
+    result_path = PATHS.on_demand_results_root / f"{ticker}.json"
+    independent_path = FINAL_MODULE_INDEPENDENT_AI_DIR / f"{ticker}.json"
+    commentary_path = FINAL_MODULE_COMMENTARY_DIR / f"{ticker}.json"
+    live_context_summary_path = PATHS.final_module_artifacts_root / "live_context_refresh_summary.json"
+
+    dataset_summary = _load_json_file(dataset_summary_path)
+    result_summary = _load_json_file(result_path)
+    independent_payload = _load_json_file(independent_path)
+    commentary_payload = _load_json_file(commentary_path)
+    live_context_summary = _load_json_file(live_context_summary_path)
+
+    dataset_generated_at = _parse_iso_timestamp(dataset_summary.get("generated_at"))
+    result_generated_at = _parse_iso_timestamp(result_summary.get("generated_at"))
+    payload_generated_at = _parse_iso_timestamp(commentary_payload.get("generated_at") or independent_payload.get("generated_at"))
+
+    live_context_tickers = {str(item).strip() for item in live_context_summary.get("tickers", []) if str(item).strip()}
+    live_context_generated_at = (
+        _parse_iso_timestamp(live_context_summary.get("generated_at"))
+        if ticker in live_context_tickers
+        else None
+    )
+
+    missing = []
+    if not dataset_summary_path.exists():
+        missing.append("dataset")
+    if not result_path.exists():
+        missing.append("model_result")
+    if not independent_path.exists() or not commentary_path.exists():
+        missing.append("final_ai_payload")
+    if ticker not in live_context_tickers:
+        missing.append("market_context")
+
+    model_cache_ready = (
+        dataset_summary_path.exists()
+        and result_path.exists()
+        and _is_same_local_day(dataset_generated_at)
+        and _is_same_local_day(result_generated_at)
+        and _is_fresh_enough(dataset_generated_at, FINAL_AI_MODEL_CACHE_TTL)
+        and _is_fresh_enough(result_generated_at, FINAL_AI_MODEL_CACHE_TTL)
+    )
+    context_cache_ready = (
+        ticker in live_context_tickers
+        and independent_path.exists()
+        and commentary_path.exists()
+        and _is_same_local_day(live_context_generated_at)
+        and _is_same_local_day(payload_generated_at)
+        and _is_fresh_enough(live_context_generated_at, FINAL_AI_CONTEXT_CACHE_TTL)
+        and _is_fresh_enough(payload_generated_at, FINAL_AI_CONTEXT_CACHE_TTL)
+    )
+
+    return {
+        "ticker": ticker,
+        "dataset_generated_at": dataset_generated_at.isoformat() if dataset_generated_at else "",
+        "result_generated_at": result_generated_at.isoformat() if result_generated_at else "",
+        "payload_generated_at": payload_generated_at.isoformat() if payload_generated_at else "",
+        "live_context_generated_at": live_context_generated_at.isoformat() if live_context_generated_at else "",
+        "missing": missing,
+        "model_cache_ready": model_cache_ready,
+        "context_cache_ready": context_cache_ready,
+        "ready": model_cache_ready and context_cache_ready,
+    }
+
+
+def refresh_selected_ticker_for_final_ai(ticker: str, force_refresh: bool = False) -> dict[str, object]:
     ticker = normalize_ticker(ticker)
     if not ticker:
-        return
+        return {"ticker": "", "action": "skipped", "reason": "empty_ticker"}
+    cache_status = get_ticker_cache_status(ticker)
+    if cache_status["ready"] and not force_refresh:
+        return {
+            "ticker": ticker,
+            "action": "cache_hit",
+            "reason": "fresh_same_day_cache",
+            "cache_status": cache_status,
+        }
+
     build_single_ticker_model_result(PATHS, ticker)
     refresh_live_final_module_context(PATHS, [ticker])
     build_final_module_payloads(PATHS, tickers=[ticker])
+    return {
+        "ticker": ticker,
+        "action": "refreshed",
+        "reason": "force_refresh" if force_refresh else "missing_or_stale_cache",
+        "cache_status": get_ticker_cache_status(ticker),
+    }
 
 
 def normalize_ticker(raw_value: object) -> str:
@@ -2820,13 +2931,25 @@ with st.sidebar:
         placeholder="例如 2308、2454、AAPL",
     )
     st.session_state.manual_ticker_input = manual_ticker
-    if st.button("下載最新資料並生成全部模型", width="stretch"):
+    force_refresh = st.checkbox(
+        "忽略快取並強制更新",
+        value=bool(st.session_state.get("force_refresh_ticker", False)),
+        key="force_refresh_ticker",
+        help="若關閉，系統會優先重用同日已生成的 ticker 模型與 Final AI 結果。",
+    )
+    if st.button("生成 / 更新模型與 Final AI", width="stretch"):
         custom_ticker = normalize_ticker(manual_ticker)
         if not custom_ticker:
             st.warning("請先輸入有效的 ticker。")
         else:
-            with st.spinner(f"正在為 {custom_ticker} 下載最新資料並生成全部模型..."):
-                refresh_selected_ticker_for_final_ai(custom_ticker)
+            with st.spinner(
+                f"正在為 {custom_ticker}{' 強制更新' if force_refresh else ' 檢查快取並生成'}全部模型與 Final AI..."
+            ):
+                refresh_result = refresh_selected_ticker_for_final_ai(custom_ticker, force_refresh=force_refresh)
+            if refresh_result["action"] == "cache_hit":
+                st.info(f"{custom_ticker} 已使用同日快取，未重複下載資料或重跑 Final AI。")
+            else:
+                st.success(f"{custom_ticker} 已完成最新資料更新與 Final AI 重建。")
             st.session_state.selected_ticker = custom_ticker
             st.cache_data.clear()
             st.rerun()
@@ -2894,11 +3017,13 @@ if should_refresh_final_ai(
     st.session_state.get("page_mode"),
     st.session_state.get("previous_page_mode"),
 ):
-    with st.spinner(f"正在更新 {ticker_selected} 的全部模型與 Final AI 專區資料..."):
-        refresh_selected_ticker_for_final_ai(ticker_selected)
+    with st.spinner(f"正在檢查 {ticker_selected} 的 Final AI 快取狀態..."):
+        refresh_result = refresh_selected_ticker_for_final_ai(ticker_selected)
+    st.session_state.final_ai_refresh_result = refresh_result
     st.session_state.previous_page_mode = st.session_state.page_mode
-    st.cache_data.clear()
-    st.rerun()
+    if refresh_result["action"] == "refreshed":
+        st.cache_data.clear()
+        st.rerun()
 
 st.session_state.previous_page_mode = st.session_state.page_mode
 
@@ -3294,6 +3419,12 @@ if st.session_state.page_mode == "Final AI 專區":
     with final_cols[0]:
         st.markdown("## Final AI 專區")
         st.caption("把獨立 AI 估值、內部模型比較、新聞摘要與法人 / 公眾觀點集中到同一頁，直接給出最後判讀。")
+        refresh_result = st.session_state.get("final_ai_refresh_result", {})
+        if isinstance(refresh_result, dict) and refresh_result.get("ticker") == ticker_selected:
+            if refresh_result.get("action") == "cache_hit":
+                st.caption("目前使用同日快取結果；若要重新抓最新資料，請勾選左側「忽略快取並強制更新」。")
+            elif refresh_result.get("action") == "refreshed":
+                st.caption("本次已重新抓取最新資料並重建 Final AI。")
         render_final_module_panel(ticker_selected)
     with final_cols[1]:
         render_model_snapshot_panel(selected_row, active_models)

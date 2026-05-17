@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sys
 import unittest
+from datetime import datetime, timedelta
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -67,6 +68,120 @@ class AppReportingTests(unittest.TestCase):
         self.assertTrue(app.should_refresh_final_ai("Final AI 專區", "主頁總覽"))
         self.assertFalse(app.should_refresh_final_ai("Final AI 專區", "Final AI 專區"))
         self.assertFalse(app.should_refresh_final_ai("主頁總覽", "Final AI 專區"))
+
+    def test_refresh_selected_ticker_for_final_ai_uses_same_day_cache(self) -> None:
+        original_paths = app.PATHS
+        original_independent_dir = app.FINAL_MODULE_INDEPENDENT_AI_DIR
+        original_commentary_dir = app.FINAL_MODULE_COMMENTARY_DIR
+        original_build_single = app.build_single_ticker_model_result
+        original_refresh_live = app.refresh_live_final_module_context
+        original_build_payloads = app.build_final_module_payloads
+        try:
+            with TemporaryDirectory() as tmpdir:
+                root = Path(tmpdir)
+                app.PATHS = WorkspacePaths(workspace_root=root)
+                app.FINAL_MODULE_INDEPENDENT_AI_DIR = root / "artifacts" / "final_module" / "payloads" / "independent_ai"
+                app.FINAL_MODULE_COMMENTARY_DIR = root / "artifacts" / "final_module" / "payloads" / "final_commentary"
+                app.FINAL_MODULE_INDEPENDENT_AI_DIR.mkdir(parents=True, exist_ok=True)
+                app.FINAL_MODULE_COMMENTARY_DIR.mkdir(parents=True, exist_ok=True)
+                now_iso = datetime.now().astimezone().replace(microsecond=0).isoformat()
+
+                dataset_root = root / "artifacts" / "runtime" / "on_demand" / "datasets" / "2330"
+                dataset_root.mkdir(parents=True, exist_ok=True)
+                (dataset_root / "dataset_summary.json").write_text(json.dumps({"generated_at": now_iso}), encoding="utf-8")
+
+                result_root = root / "artifacts" / "runtime" / "on_demand" / "model_results"
+                result_root.mkdir(parents=True, exist_ok=True)
+                (result_root / "2330.json").write_text(json.dumps({"generated_at": now_iso}), encoding="utf-8")
+
+                (app.FINAL_MODULE_INDEPENDENT_AI_DIR / "2330.json").write_text(
+                    json.dumps({"generated_at": now_iso}, ensure_ascii=False), encoding="utf-8"
+                )
+                (app.FINAL_MODULE_COMMENTARY_DIR / "2330.json").write_text(
+                    json.dumps({"generated_at": now_iso}, ensure_ascii=False), encoding="utf-8"
+                )
+                final_root = root / "artifacts" / "final_module"
+                final_root.mkdir(parents=True, exist_ok=True)
+                (final_root / "live_context_refresh_summary.json").write_text(
+                    json.dumps({"generated_at": now_iso, "tickers": ["2330"]}, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+
+                def fail(*args, **kwargs):
+                    raise AssertionError("cache hit should not trigger regeneration")
+
+                app.build_single_ticker_model_result = fail
+                app.refresh_live_final_module_context = fail
+                app.build_final_module_payloads = fail
+
+                result = app.refresh_selected_ticker_for_final_ai("2330")
+
+                self.assertEqual(result["action"], "cache_hit")
+                self.assertTrue(result["cache_status"]["ready"])
+        finally:
+            app.PATHS = original_paths
+            app.FINAL_MODULE_INDEPENDENT_AI_DIR = original_independent_dir
+            app.FINAL_MODULE_COMMENTARY_DIR = original_commentary_dir
+            app.build_single_ticker_model_result = original_build_single
+            app.refresh_live_final_module_context = original_refresh_live
+            app.build_final_module_payloads = original_build_payloads
+
+    def test_refresh_selected_ticker_for_final_ai_rebuilds_when_context_stale(self) -> None:
+        original_paths = app.PATHS
+        original_independent_dir = app.FINAL_MODULE_INDEPENDENT_AI_DIR
+        original_commentary_dir = app.FINAL_MODULE_COMMENTARY_DIR
+        original_build_single = app.build_single_ticker_model_result
+        original_refresh_live = app.refresh_live_final_module_context
+        original_build_payloads = app.build_final_module_payloads
+        try:
+            with TemporaryDirectory() as tmpdir:
+                root = Path(tmpdir)
+                app.PATHS = WorkspacePaths(workspace_root=root)
+                app.FINAL_MODULE_INDEPENDENT_AI_DIR = root / "artifacts" / "final_module" / "payloads" / "independent_ai"
+                app.FINAL_MODULE_COMMENTARY_DIR = root / "artifacts" / "final_module" / "payloads" / "final_commentary"
+                app.FINAL_MODULE_INDEPENDENT_AI_DIR.mkdir(parents=True, exist_ok=True)
+                app.FINAL_MODULE_COMMENTARY_DIR.mkdir(parents=True, exist_ok=True)
+                now = datetime.now().astimezone().replace(microsecond=0)
+                stale_iso = (now - timedelta(hours=4)).isoformat()
+                fresh_iso = now.isoformat()
+
+                dataset_root = root / "artifacts" / "runtime" / "on_demand" / "datasets" / "2330"
+                dataset_root.mkdir(parents=True, exist_ok=True)
+                (dataset_root / "dataset_summary.json").write_text(json.dumps({"generated_at": fresh_iso}), encoding="utf-8")
+
+                result_root = root / "artifacts" / "runtime" / "on_demand" / "model_results"
+                result_root.mkdir(parents=True, exist_ok=True)
+                (result_root / "2330.json").write_text(json.dumps({"generated_at": fresh_iso}), encoding="utf-8")
+
+                (app.FINAL_MODULE_INDEPENDENT_AI_DIR / "2330.json").write_text(
+                    json.dumps({"generated_at": stale_iso}, ensure_ascii=False), encoding="utf-8"
+                )
+                (app.FINAL_MODULE_COMMENTARY_DIR / "2330.json").write_text(
+                    json.dumps({"generated_at": stale_iso}, ensure_ascii=False), encoding="utf-8"
+                )
+                final_root = root / "artifacts" / "final_module"
+                final_root.mkdir(parents=True, exist_ok=True)
+                (final_root / "live_context_refresh_summary.json").write_text(
+                    json.dumps({"generated_at": stale_iso, "tickers": ["2330"]}, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+
+                calls: list[str] = []
+                app.build_single_ticker_model_result = lambda *args, **kwargs: calls.append("model")
+                app.refresh_live_final_module_context = lambda *args, **kwargs: calls.append("context")
+                app.build_final_module_payloads = lambda *args, **kwargs: calls.append("payload")
+
+                result = app.refresh_selected_ticker_for_final_ai("2330")
+
+                self.assertEqual(result["action"], "refreshed")
+                self.assertEqual(calls, ["model", "context", "payload"])
+        finally:
+            app.PATHS = original_paths
+            app.FINAL_MODULE_INDEPENDENT_AI_DIR = original_independent_dir
+            app.FINAL_MODULE_COMMENTARY_DIR = original_commentary_dir
+            app.build_single_ticker_model_result = original_build_single
+            app.refresh_live_final_module_context = original_refresh_live
+            app.build_final_module_payloads = original_build_payloads
 
     def test_choose_focus_model_prefers_buffett3_but_preserves_explicit_choice(self) -> None:
         self.assertEqual(
