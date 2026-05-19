@@ -592,6 +592,12 @@ def _run_imfs_for_ticker(
     annual_df["date"] = pd.to_datetime(annual_df["date"], errors="coerce")
     latest_frame = annual_df.dropna(subset=["date"]).sort_values("date")
     latest = latest_frame.iloc[-1] if not latest_frame.empty else None
+    if "Close" not in price_df.columns or "Date" not in price_df.columns:
+        return _unavailable_imfs_result("missing Date/Close columns in price history")
+    if pd.to_numeric(price_df["Close"], errors="coerce").dropna().empty:
+        return _unavailable_imfs_result("no valid close prices in price history")
+    if pd.to_datetime(price_df["Date"], errors="coerce").dropna().empty:
+        return _unavailable_imfs_result("no valid dates in price history")
     latest_price = _latest_close(price_df)
     latest_date = _latest_date(price_df)
     SourceMeta = models_module.SourceMeta

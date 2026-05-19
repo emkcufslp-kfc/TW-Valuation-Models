@@ -2220,13 +2220,13 @@ def render_rules_table(title: str, rows: list[tuple[str, str, str]]) -> None:
     st.markdown(f"#### {title}")
     st.caption("以下門檻用來把模型輸出映射成一致的儀表板評級，方便橫向比較。")
     rules_df = pd.DataFrame(rows, columns=["標籤", "判準", "說明"])
-    st.dataframe(rules_df.astype(str), width="stretch", hide_index=True)
+    st.dataframe(rules_df.astype(str), use_container_width=True, hide_index=True)
 
 
 def render_reference_tab(diagnostics: dict[str, object], data_snapshot: dict[str, object]) -> None:
     st.markdown("#### 模型參考總覽")
     st.caption("整理各模型的計算邏輯、主要輸入、資料來源與輸出，方便快速理解整個研究頁的估值語言。")
-    st.dataframe(pd.DataFrame(MODEL_REFERENCE_ROWS).astype(str), width="stretch", hide_index=True)
+    st.dataframe(pd.DataFrame(MODEL_REFERENCE_ROWS).astype(str), use_container_width=True, hide_index=True)
 
     st.markdown("#### IMFS Route 對照")
     route_rows = pd.DataFrame(
@@ -2237,7 +2237,7 @@ def render_reference_tab(diagnostics: dict[str, object], data_snapshot: dict[str
             {"Route": "D", "模型": "NORMALIZED_PE", "邏輯": "循環或半導體類型，以 normalized P/E 估值。"},
         ]
     )
-    st.dataframe(route_rows.astype(str), width="stretch", hide_index=True)
+    st.dataframe(route_rows.astype(str), use_container_width=True, hide_index=True)
 
     st.markdown("#### 目前整合原則")
     st.write("1. 先用各模型原始邏輯或原始核心函式跑出結果。")
@@ -2278,7 +2278,7 @@ def render_reference_tab(diagnostics: dict[str, object], data_snapshot: dict[str
     ]
     st.markdown("#### 資料來源覆蓋")
     st.caption("以下覆蓋率直接來自本機 `buffett3_source_manifest.json`，不是手寫說明。")
-    st.dataframe(pd.DataFrame(source_rows).astype(str), width="stretch", hide_index=True)
+    st.dataframe(pd.DataFrame(source_rows).astype(str), use_container_width=True, hide_index=True)
 
     validation_rows = []
     for check in validation.get("checks", []):
@@ -2304,7 +2304,7 @@ def render_reference_tab(diagnostics: dict[str, object], data_snapshot: dict[str
     if validation_rows:
         st.markdown("#### 正規化 / 驗證摘要")
         st.caption("顯示目前共享資料層已知的真實限制，例如 snapshot-only 或缺少 fiscal period。")
-        st.dataframe(pd.DataFrame(validation_rows).astype(str), width="stretch", hide_index=True)
+        st.dataframe(pd.DataFrame(validation_rows).astype(str), use_container_width=True, hide_index=True)
     if manifest:
         st.caption(f"來源清單檔案：{manifest.get('generated_at', '未提供')} 生成")
 
@@ -2443,7 +2443,7 @@ def render_final_module_panel(ticker: str) -> None:
                 }
             )
         if compare_rows:
-            st.dataframe(pd.DataFrame(compare_rows).astype(str), width="stretch", hide_index=True)
+            st.dataframe(pd.DataFrame(compare_rows).astype(str), use_container_width=True, hide_index=True)
         st.markdown("#### \u6a21\u578b\u5dee\u7570\u89e3\u91cb")
         st.write(str(commentary_payload.get("model_difference_explanation", "-")))
 
@@ -2824,9 +2824,32 @@ def build_report(
 
 def run_all_models() -> None:
     build_all_model_results(PATHS)
+    clear_cached_views()
+
+
+def clear_cached_views() -> None:
     load_results.clear()
+    load_json_optional.clear()
+    load_final_module_payload.clear()
+    load_dataset_diagnostics.clear()
     get_price_frame.clear()
     get_financial_frames.clear()
+    load_buffett3_payload.clear()
+
+
+def is_top100_ticker(dataset: dict[str, object], ticker: str) -> bool:
+    universe_df = dataset.get("top100_universe", pd.DataFrame())
+    if not isinstance(universe_df, pd.DataFrame) or universe_df.empty or "ticker" not in universe_df.columns:
+        return False
+    ticker_text = normalize_ticker(ticker)
+    universe_tickers = set(universe_df["ticker"].astype(str).map(normalize_ticker))
+    return ticker_text in universe_tickers
+
+
+def run_models_for_ticker(ticker: str) -> dict[str, object]:
+    refresh_result = refresh_selected_ticker_for_final_ai(ticker, force_refresh=True)
+    clear_cached_views()
+    return refresh_result
 
 
 init_state()
@@ -2937,7 +2960,7 @@ with st.sidebar:
         key="force_refresh_ticker",
         help="若關閉，系統會優先重用同日已生成的 ticker 模型與 Final AI 結果。",
     )
-    if st.button("生成 / 更新模型與 Final AI", width="stretch"):
+    if st.button("生成 / 更新模型與 Final AI", use_container_width=True):
         custom_ticker = normalize_ticker(manual_ticker)
         if not custom_ticker:
             st.warning("請先輸入有效的 ticker。")
@@ -2994,14 +3017,19 @@ with st.sidebar:
     st.markdown("### 執行控制")
     run_mode = st.radio("模式", ["執行全部模型", "僅執行選定模型"], label_visibility="collapsed")
     st.markdown('<div class="strong-button">', unsafe_allow_html=True)
-    if st.button("▶ 執行全部模型", width="stretch"):
-        with st.spinner("正在重算所有模型結果..."):
-            run_all_models()
-        st.success("全部模型已完成重算。")
+    if st.button("▶ 執行全部模型", use_container_width=True):
+        if is_top100_ticker(dataset, ticker_selected):
+            with st.spinner("正在重算所有模型結果..."):
+                run_all_models()
+            st.success("全部模型已完成重算。")
+        else:
+            with st.spinner(f"正在下載 {ticker_selected} 的相關資料並重跑全部模型..."):
+                run_models_for_ticker(ticker_selected)
+            st.success(f"{ticker_selected} 已完成資料下載與全部模型重算。")
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="secondary-button">', unsafe_allow_html=True)
-    if st.button("⇄ 僅執行選定模型", width="stretch"):
+    if st.button("⇄ 僅執行選定模型", use_container_width=True):
         st.info(f"目前為展示版控制流程，已套用 {run_mode} 檢視邏輯。")
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -3121,10 +3149,15 @@ for idx, model_id in enumerate(MODEL_ORDER):
 control_cols = st.columns([1.0, 1.35], gap="medium")
 with control_cols[0]:
     st.markdown('<div class="strong-button">', unsafe_allow_html=True)
-    if st.button("▶ 執行全部模型", width="stretch", key="top_run_all_new"):
-        with st.spinner("正在重算所有模型結果..."):
-            run_all_models()
-        st.success("全部模型已完成重算。")
+    if st.button("▶ 執行全部模型", use_container_width=True, key="top_run_all_new"):
+        if is_top100_ticker(dataset, ticker_selected):
+            with st.spinner("正在重算所有模型結果..."):
+                run_all_models()
+            st.success("全部模型已完成重算。")
+        else:
+            with st.spinner(f"正在下載 {ticker_selected} 的相關資料並重跑全部模型..."):
+                run_models_for_ticker(ticker_selected)
+            st.success(f"{ticker_selected} 已完成資料下載與全部模型重算。")
     st.markdown("</div>", unsafe_allow_html=True)
 with control_cols[1]:
     st.session_state.page_mode = st.radio(
@@ -3186,7 +3219,7 @@ if st.session_state.page_mode == "主頁總覽":
                     "內在價值 / 動作": payload["fair_value_text"],
                 }
             )
-        st.dataframe(pd.DataFrame(table_rows).astype(str), width="stretch", hide_index=True)
+        st.dataframe(pd.DataFrame(table_rows).astype(str), use_container_width=True, hide_index=True)
     else:
         models_per_row = 3 if len(overview_models) >= 5 else max(1, len(overview_models))
         for row_models in chunked(overview_models, models_per_row):
@@ -3251,7 +3284,7 @@ if st.session_state.page_mode == "主頁總覽":
             ),
             file_name=f"{ticker_selected}_valuation_report.json",
             mime="application/json",
-            width="stretch",
+            use_container_width=True,
         )
 
     detail_tabs = st.tabs(["總覽", "估值輸入", "模型解釋", "風險提示", "Final AI"])
@@ -3353,7 +3386,7 @@ if st.session_state.page_mode == "主頁總覽":
                     {"欄位": "溢價資格", "內容": premium_text, "說明": "品質分數達到門檻時，可使用較高的 justified P/E 估出每股合理價。"},
                 ]
             )
-        st.dataframe(pd.DataFrame(input_rows).astype(str), width="stretch", hide_index=True)
+        st.dataframe(pd.DataFrame(input_rows).astype(str), use_container_width=True, hide_index=True)
 
     with detail_tabs[2]:
         st.markdown("#### 模型判讀")
@@ -3375,7 +3408,7 @@ if st.session_state.page_mode == "主頁總覽":
                 )
             if leg_rows:
                 st.markdown("#### Buffett 3.0 估值支線")
-                st.dataframe(pd.DataFrame(leg_rows).astype(str), width="stretch", hide_index=True)
+                st.dataframe(pd.DataFrame(leg_rows).astype(str), use_container_width=True, hide_index=True)
             modifier_rows = []
             for key, modifier in buffett3_explain_payload.get("modifiers", {}).items():
                 modifier_rows.append(
@@ -3388,7 +3421,7 @@ if st.session_state.page_mode == "主頁總覽":
                 )
             if modifier_rows:
                 st.markdown("#### Buffett 3.0 修正模組")
-                st.dataframe(pd.DataFrame(modifier_rows).astype(str), width="stretch", hide_index=True)
+                st.dataframe(pd.DataFrame(modifier_rows).astype(str), use_container_width=True, hide_index=True)
         if focus_model in {"buffett_v1", "buffett_v2", "buffett3", "imfs"}:
             render_rules_table("價值型模型分級規則", VALUE_RULES)
         elif focus_model == "quant":
